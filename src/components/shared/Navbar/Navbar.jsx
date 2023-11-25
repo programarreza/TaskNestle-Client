@@ -3,6 +3,7 @@ import DropDown from "./DropDown";
 import NavbarLinks from "./NavbarLinks";
 
 const Navbar = () => {
+  
   return (
     <div>
       <div className="navbar bg-base-100 shadow-lg">
@@ -37,7 +38,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <NavbarLinks/>
+            <NavbarLinks />
           </ul>
         </div>
         <div className="navbar-end ">

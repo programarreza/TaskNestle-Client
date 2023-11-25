@@ -35,6 +35,7 @@ const NavbarLinks = () => {
       >
         Login
       </NavLink>
+      
     </div>
 	);
 };

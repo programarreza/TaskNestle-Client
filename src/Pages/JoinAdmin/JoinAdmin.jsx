@@ -5,11 +5,10 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosLocal from "../../Hooks/useAxiosLocal";
 import { imageUpload } from "../../Utils/Utils";
-import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
-const JoinEmployee = () => {
-  const axiosLocal = useAxiosLocal();
+const JoinAdmin = () => {
   const { createUser, updateUserProfile } = useAuth();
+  const axiosLocal = useAxiosLocal();
   const navigate = useNavigate();
 
   const {
@@ -39,7 +38,9 @@ const JoinEmployee = () => {
             name: data.name,
             email: data.email,
             dob: data.dob,
-            image: imageData?.data?.display_url
+            image: imageData?.data?.display_url,
+			package: data.package,
+			companyName: data.companyName
           };
           axiosLocal.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
@@ -59,7 +60,7 @@ const JoinEmployee = () => {
   return (
     <div>
       <Helmet>
-        <title>TaskNestle | Join as Employee</title>
+        <title>TaskNestle | Join as Admin</title>
       </Helmet>
 
       <div className="w-full min-h-screen flex bg-cover bg-center">
@@ -78,7 +79,7 @@ const JoinEmployee = () => {
                 className="card-body w-[350px]"
               >
                 <h2 className="text-center text-3xl font-bold">
-                  Join as Employee
+                  Join as Admin
                 </h2>
                 <div className="form-control">
                   <label className="label">
@@ -92,6 +93,22 @@ const JoinEmployee = () => {
                   />
                   {errors.name && (
                     <span className="text-[#D1A054]">Name is required</span>
+                  )}
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    {/* <span className="label-text">Full Name</span> */}
+                  </label>
+                  <input
+                    type="text"
+                    {...register("companyName", { required: true })}
+                    placeholder="Company Name"
+                    className="input input-bordered"
+                  />
+                  {errors.companyName && (
+                    <span className="text-[#D1A054]">
+                      Company Name is required
+                    </span>
                   )}
                 </div>
 
@@ -166,14 +183,13 @@ const JoinEmployee = () => {
 
                 <div>
                   <label htmlFor="image" className="block mb-2 text-sm">
-                    Select Profile Image:
+                    Company Logo:
                   </label>
                   <input
                     {...register("image", { required: true })}
                     required
                     type="file"
                     id="image"
-                    
                     accept="image/*"
                   />
                   {errors.image && (
@@ -181,6 +197,21 @@ const JoinEmployee = () => {
                       Date Of birth is required
                     </span>
                   )}
+                </div>
+
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Type</span>
+                  </label>
+                  
+                  <select className="border py-3 rounded-md" {...register("package", { required: true })}>
+                    <option disabled selected required>
+                      Package Details
+                    </option>
+                    <option value="1">5 Members for $5</option>
+                    <option value="2">10 Members for $8</option>
+                    <option value="3">20 Members for $15</option>
+                  </select>
                 </div>
 
                 <div className="form-control mt-2">
@@ -196,11 +227,8 @@ const JoinEmployee = () => {
                       <span className="font-semibold">Go to log in</span>
                     </Link>
                   </p> */}
-                  <div className="divider">or</div>
                 </div>
-                <div>
-                  <SocialLogin />
-                </div>
+                <div>{/* <SocialLogin /> */}</div>
               </form>
             </div>
           </div>
@@ -210,4 +238,4 @@ const JoinEmployee = () => {
   );
 };
 
-export default JoinEmployee;
+export default JoinAdmin;

@@ -11,23 +11,25 @@ import Slider from "./Slider";
 
 const Banner = () => {
   return (
-    <div className="min-h-[90vh] w-full bg-[#bde0fe]">
+    <div className="min-h-[90vh] w-full ">
       <Swiper
         spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 4500,
-          disableOnInteraction: false,
-        }}
+        centeredSlides={false}
+        // TODO: unComment the autoPlay system
+        // autoplay={{
+        //   delay: 4500,
+        //   disableOnInteraction: false,
+        // }}
         pagination={{
           clickable: true,
         }}
         navigation={false}
-        modules={[Autoplay, Pagination, Navigation]}
+        // Autoplay,
+        modules={[ Pagination, Navigation]}
         className="mySwiper"
       >
         <SwiperSlide >
-          <Slider heading={"Exciting Opportunities Await You as Our Newest Employee"} path={"join-employee"} subHeading={"Join us as an employee and be part of a thriving team with exciting opportunities for growth and success!"} label={"Join as Employee"} image={"https://i.postimg.cc/Z5Y2z6MB/people-working-modern-bright-office-workspace-financial-business-company-horizontal-banner-men-women.jpg"}/>
+          <Slider heading={"Exciting Opportunities Await You as Our Newest Employee"} path={"join-employee"} subHeading={"Join us as an employee and be part of a thriving team with exciting opportunities for growth and success!"} label={"Join as Employee"} image={"https://i.postimg.cc/26v2Zx65/SHOPIFY-Techmayntra.jpg"}/>
         </SwiperSlide>
 		
         <SwiperSlide >

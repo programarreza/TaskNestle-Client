@@ -2,7 +2,8 @@ import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import { saveUser } from "../../Utils/Utils";
+import { saveUser } from "../../api/Utils/Utils";
+
 
 const SocialLogin = () => {
   const { loginWithGoogle } = useAuth();

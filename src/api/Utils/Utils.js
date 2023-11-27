@@ -1,7 +1,7 @@
 import axios from "axios";
-import { axiosSecure } from "../Hooks/useAxiosSecure";
+import { axiosSecure } from "../../Hooks/useAxiosSecure";
 
-
+// image upload 
 export const imageUpload = async (image) => {
   const formData = new FormData();
   formData.append("image", image);

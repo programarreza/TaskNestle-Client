@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet";
 import useAxiosLocal from "../../../Hooks/useAxiosLocal";
-import { imageUpload } from "../../../Utils/Utils";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import Container from "../../../components/shared/Container/Container";
 import useAuth from "../../../Hooks/useAuth";
+import { imageUpload } from "../../../api/Utils/Utils";
 
 const CustomRequest = () => {
   const axiosLocal = useAxiosLocal();
@@ -36,7 +36,7 @@ const CustomRequest = () => {
       assetInfo: data.assetInfo,
       additional: data.additionalInfo,
       date: new Date(),
-      status: "pending"
+      status: "pending",
     };
     console.log(assetInfo);
     axiosLocal
@@ -57,7 +57,7 @@ const CustomRequest = () => {
     <Container>
       <>
         <Helmet>
-          <title>TaskNestle | Join as Employee</title>
+          <title>TaskNestle | Make a Custom Request </title>
         </Helmet>
 
         <div className="w-full bg-cover bg-center">
@@ -65,7 +65,7 @@ const CustomRequest = () => {
             <div className=" flex flex-row  rounded-xl justify-between">
               <div className=" w-full  flex-shrink-0 shadow-2xl ">
                 <h2 className="text-center text-3xl font-bold mt-12">
-                  Join as Employee
+                Make a Custom Request
                 </h2>
                 <form
                   onSubmit={handleSubmit(onSubmit)}

@@ -4,7 +4,8 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosLocal from "../../Hooks/useAxiosLocal";
-import { imageUpload } from "../../Utils/Utils";
+import { imageUpload } from "../../api/Utils/Utils";
+
 
 const JoinAdmin = () => {
   const { createUser, updateUserProfile } = useAuth();

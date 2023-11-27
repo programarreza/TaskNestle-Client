@@ -4,8 +4,8 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosLocal from "../../Hooks/useAxiosLocal";
-import { imageUpload } from "../../Utils/Utils";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { imageUpload } from "../../api/Utils/Utils";
 
 const JoinEmployee = () => {
   const axiosLocal = useAxiosLocal();

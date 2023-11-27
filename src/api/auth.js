@@ -11,3 +11,4 @@ export const getCustomAsset = async (email) => {
   const { data } = await axiosSecure(`/custom-assets/${email}`);
   return data;
 };
+

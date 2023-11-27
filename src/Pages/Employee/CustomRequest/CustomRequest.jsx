@@ -57,7 +57,7 @@ const CustomRequest = () => {
     <Container>
       <>
         <Helmet>
-          <title>TaskNestle | Make a Custom Request </title>
+          <title>Make a Custom Request </title>
         </Helmet>
 
         <div className="w-full bg-cover bg-center">

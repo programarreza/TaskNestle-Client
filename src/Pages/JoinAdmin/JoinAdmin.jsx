@@ -39,8 +39,9 @@ const JoinAdmin = () => {
             email: data.email,
             dob: data.dob,
             image: imageData?.data?.display_url,
-			package: data.package,
-			companyName: data.companyName
+            package: data.package,
+            companyName: data.companyName,
+            role: "admin",
           };
           axiosLocal.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
@@ -82,9 +83,7 @@ const JoinAdmin = () => {
                   Join as Admin
                 </h2>
                 <div className="form-control">
-                  <label className="label">
-                    {/* <span className="label-text">Full Name</span> */}
-                  </label>
+                  <label className="label"></label>
                   <input
                     type="text"
                     {...register("name", { required: true })}
@@ -96,9 +95,7 @@ const JoinAdmin = () => {
                   )}
                 </div>
                 <div className="form-control">
-                  <label className="label">
-                    {/* <span className="label-text">Full Name</span> */}
-                  </label>
+                  <label className="label"></label>
                   <input
                     type="text"
                     {...register("companyName", { required: true })}
@@ -113,9 +110,7 @@ const JoinAdmin = () => {
                 </div>
 
                 <div className="form-control">
-                  <label className="label">
-                    {/* <span className="label-text">Email</span> */}
-                  </label>
+                  <label className="label"></label>
                   <input
                     type="email"
                     {...register("email", { required: true })}
@@ -127,9 +122,7 @@ const JoinAdmin = () => {
                   )}
                 </div>
                 <div className="form-control">
-                  <label className="label">
-                    {/* <span className="label-text">Password</span> */}
-                  </label>
+                  <label className="label"></label>
                   <input
                     type="password"
                     {...register("password", {
@@ -203,8 +196,11 @@ const JoinAdmin = () => {
                   <label className="label">
                     <span className="label-text">Type</span>
                   </label>
-                  
-                  <select className="border py-3 rounded-md" {...register("package", { required: true })}>
+
+                  <select
+                    className="border py-3 rounded-md"
+                    {...register("package", { required: true })}
+                  >
                     <option disabled selected required>
                       Package Details
                     </option>
@@ -221,14 +217,7 @@ const JoinAdmin = () => {
                   >
                     Sign Up
                   </button>
-                  {/* <p className="text-[#D1A054] text-center mt-2">
-                    Already registered?{" "}
-                    <Link to={"/login"}>
-                      <span className="font-semibold">Go to log in</span>
-                    </Link>
-                  </p> */}
                 </div>
-                <div>{/* <SocialLogin /> */}</div>
               </form>
             </div>
           </div>

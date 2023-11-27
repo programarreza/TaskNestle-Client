@@ -2,10 +2,12 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 
 const NavbarLinks = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
 
   return (
     <div className="flex gap-4">
+      {/* btn in temporary */}
+      <button onClick={logOut}>logout</button>
       <NavLink
         to="/"
         className={({ isActive, isPending }) =>

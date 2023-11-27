@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import JoinEmployee from "../Pages/JoinEmployee/JoinEmployee";
 import Login from "../Pages/Login/Login";
 import JoinAdmin from "../Pages/JoinAdmin/JoinAdmin";
+import CustomRequest from "../Pages/Employee/CustomRequest/CustomRequest";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      // without login
       {
         path: "join-employee",
         element: <JoinEmployee />,
@@ -25,6 +27,12 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+
+      // logged in employee
+      {
+        path: "custom-request",
+        element: <CustomRequest />,
       },
     ],
   },

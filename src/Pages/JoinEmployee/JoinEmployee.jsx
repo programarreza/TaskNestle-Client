@@ -39,7 +39,8 @@ const JoinEmployee = () => {
             name: data.name,
             email: data.email,
             dob: data.dob,
-            image: imageData?.data?.display_url
+            image: imageData?.data?.display_url,
+            role: "employee",
           };
           axiosLocal.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {

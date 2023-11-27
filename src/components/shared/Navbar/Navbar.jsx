@@ -29,6 +29,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
+              {/* all nav links */}
               <NavbarLinks />
             </ul>
           </div>
@@ -42,6 +43,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end ">
+          {/* user profile */}
           <DropDown />
         </div>
       </div>

@@ -3,3 +3,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swal-wide{
+    width:350px;
+	border-radius: 20px;
+}

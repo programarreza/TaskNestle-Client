@@ -88,7 +88,6 @@ const AssetList = () => {
                     <th>
                       <Link to={`/product-update/${asset?._id}`}>
                         <label
-                          // onClick={() => handleSingleData(asset?._id)}
                           htmlFor="my_modal_6"
                           className="btn btn-sm rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
                         >

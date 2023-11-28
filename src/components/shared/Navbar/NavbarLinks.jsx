@@ -3,13 +3,11 @@ import useAuth from "../../../Hooks/useAuth";
 import useUserRole from "../../../Hooks/useUserRole";
 
 const NavbarLinks = () => {
-  const { user, logOut } = useAuth();
+  const { user } = useAuth();
   const [role] = useUserRole();
 
   return (
     <div className="flex gap-4">
-      {/* btn in temporary */}
-      <button onClick={logOut}>logout</button>
       <NavLink
         to="/"
         className={({ isActive, isPending }) =>

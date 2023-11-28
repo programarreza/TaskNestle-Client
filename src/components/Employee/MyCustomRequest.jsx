@@ -24,6 +24,7 @@ const MyCustomRequest = () => {
   if (loading || !assets) {
     return <Loading />;
   }
+  console.log(assets);
 
   const handleSingleData = async(id) => {
     // console.log(id);

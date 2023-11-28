@@ -26,7 +26,7 @@ const Modal = ({ modalId, asset }) => {
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box relative max-w-none">
-          {isOpen ? (
+          {isOpen ?  (
             // update filed
             <>
               <CustomAssetUpdate asset={asset} setIsOpen={setIsOpen} isOpen={isOpen}/>

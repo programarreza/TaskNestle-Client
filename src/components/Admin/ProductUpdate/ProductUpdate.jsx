@@ -1,13 +1,13 @@
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { axiosSecure } from "../../../Hooks/useAxiosSecure";
-import useAuth from "../../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
-const AddAsset = () => {
-  const { user } = useAuth();
+const ProductUpdate = () => {
+  const { name, type, quantity, _id } = useLoaderData();
   const navigate = useNavigate();
+  console.log(10, _id);
 
   const {
     register,
@@ -23,18 +23,16 @@ const AddAsset = () => {
       name: data.productName,
       type: data.productType,
       quantity: data.productQuantity,
-      email: user?.email,
-      date: new Date(),
     };
     console.log(assetInfo);
     axiosSecure
-      .post("/add-product", assetInfo)
+      .patch(`/product-update/${_id}`, assetInfo)
       .then((res) => {
-        if (res.data.insertedId) {
-          toast.success("Product Added Successfully");
+        if (res.data) {
+          toast.success("Product Updated Successfully");
           console.log(res.data);
           reset();
-          //   navigate("/");
+          navigate("/asset-list");
         }
       })
       .catch((error) => {
@@ -43,10 +41,11 @@ const AddAsset = () => {
       });
   };
 
+  console.log(6, name);
   return (
     <div>
       <Helmet>
-        <title>Add An Asset</title>
+        <title>Update An Asset</title>
       </Helmet>
 
       <div className="w-full min-h-screen flex bg-cover bg-center">
@@ -65,12 +64,15 @@ const AddAsset = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 className="card-body w-[350px]"
               >
-                <h2 className="text-center text-3xl font-bold">Add An Asset</h2>
+                <h2 className="text-center text-3xl font-bold">
+                  Update An Asset
+                </h2>
                 <div className="form-control">
                   <label className="label">
                     {/* <span className="label-text">Full Name</span> */}
                   </label>
                   <input
+                    defaultValue={name}
                     type="text"
                     {...register("productName", { required: true })}
                     placeholder="Product Name"
@@ -87,6 +89,7 @@ const AddAsset = () => {
                   <label className="label"></label>
 
                   <select
+                    defaultValue={type}
                     className="border py-3 rounded-md"
                     {...register("productType", { required: true })}
                   >
@@ -105,6 +108,7 @@ const AddAsset = () => {
                   <label className="label"></label>
 
                   <select
+                    defaultValue={quantity}
                     className="border py-3 rounded-md"
                     {...register("productQuantity", { required: true })}
                     required
@@ -130,7 +134,7 @@ const AddAsset = () => {
                     type="submit"
                     className="btn  bg-[#D1A054B3] hover:bg-[#d19f54fb] text-white "
                   >
-                    Add Now
+                    Update Now
                   </button>
                 </div>
                 <div></div>
@@ -143,4 +147,4 @@ const AddAsset = () => {
   );
 };
 
-export default AddAsset;
+export default ProductUpdate;

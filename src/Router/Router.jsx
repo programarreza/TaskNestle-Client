@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
+import AddAsset from "../Pages/Admin/AddAsset/AddAsset";
+import AssetList from "../Pages/Admin/AssetList/AssetList";
+import CustomRequest from "../Pages/Employee/CustomRequest/CustomRequest";
 import Home from "../Pages/Home/Home";
+import JoinAdmin from "../Pages/JoinAdmin/JoinAdmin";
 import JoinEmployee from "../Pages/JoinEmployee/JoinEmployee";
 import Login from "../Pages/Login/Login";
-import JoinAdmin from "../Pages/JoinAdmin/JoinAdmin";
-import CustomRequest from "../Pages/Employee/CustomRequest/CustomRequest";
-import AddAsset from "../Pages/Admin/AddAsset/AddAsset";
+import ProductUpdate from "../components/Admin/ProductUpdate/ProductUpdate";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      
       // without login
       {
         path: "join-employee",
@@ -40,6 +43,15 @@ const router = createBrowserRouter([
       {
         path: "add-asset",
         element: <AddAsset />,
+      },
+      {
+        path: "asset-list",
+        element: <AssetList />,
+      },
+      {
+        path: "/product-update/:id",
+        element: <ProductUpdate />,
+        loader: ({ params }) => fetch(`http://localhost:5000/asset/${params.id}`),
       },
     ],
   },

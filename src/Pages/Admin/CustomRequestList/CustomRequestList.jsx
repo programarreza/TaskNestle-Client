@@ -1,26 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
-import { AiFillDelete } from "react-icons/ai";
-import { FiEdit } from "react-icons/fi";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import { axiosSecure } from "../../../Hooks/useAxiosSecure";
-import { getAsset } from "../../../api/auth";
 import Loading from "../../../components/Loading/Loading";
 import Container from "../../../components/shared/Container/Container";
-import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
 
-const AssetList = () => {
-  const { user, loading } = useAuth();
+const CustomRequestList = () => {
+  const {loading } = useAuth();
 
   const { data: assets, refetch } = useQuery({
     enabled: !loading,
-    queryFn: async () => await getAsset(user?.email),
+    queryFn: async () => await axiosSecure("/custom-asset"),
     queryKey: ["assets"],
   });
 
   if (loading || !assets) {
     return <Loading />;
   }
+  console.log(assets.data);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -30,32 +28,33 @@ const AssetList = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, Reject!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/asset/${id}`).then((res) => {
+        axiosSecure.delete(`/custom-asset/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount) {
-            console.log(id);
             refetch();
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
-            });
+            toast.success("Reject Done!");
           }
         });
       }
     });
   };
-
-  console.log(24, assets);
+  const statusInfo = {
+    status: "approved",
+  };
+  const handleApprove = (id) => {
+    console.log(id);
+    axiosSecure.patch(`/custom-asset-update/${id}`, statusInfo);
+    refetch();
+  };
 
   return (
     <Container>
       <div className="py-12 h-screen">
         <h2 className="text-4xl text-center uppercase font-semibold">
-          Asset List
+          Custom Request List
         </h2>
 
         <div>
@@ -64,37 +63,52 @@ const AssetList = () => {
               {/* head */}
               <thead>
                 <tr className="bg-[#D1A054]  text-white text-xl">
-                  <th>SL.</th>
-                  <th>Product Name</th>
-                  <th>Product Type</th>
-                  <th>Product Quantity</th>
-                  <th>Date</th>
-                  <th>update</th>
-                  <th>delete</th>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Type</th>
+                  <th>Why you need this</th>
+                  <th>Additional info</th>
+                  <th>Action</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {assets?.map((asset, index) => (
+                {assets?.data?.map((asset) => (
                   <tr key={asset._id}>
-                    <th>{index + 1}</th>
+                    <td>
+                      <div className="flex items-center gap-3">
+                        <div className="avatar">
+                          <div className="mask mask-squircle w-12 h-12">
+                            <img
+                              src={asset?.image}
+                              alt="Avatar Tailwind CSS Component"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </td>
                     <td>
                       <div className="flex items-center gap-3">
                         <div className="font-bold">{asset?.name}</div>
                       </div>
                     </td>
-                    <td>{asset?.type}</td>
-                    <td>{asset?.quantity}</td>
-                    <th>{asset?.date}</th>
+                    <td>$ {asset?.price}</td>
+                    <td>{asset?.assetType}</td>
+                    <th>{asset?.assetInfo}</th>
+                    <th>{asset?.additional}</th>
                     <th>
-                      <Link to={`/product-update/${asset?._id}`}>
+                      {asset?.status === "pending" ? (
                         <label
-                          // onClick={() => handleSingleData(asset?._id)}
+                          onClick={() => handleApprove(asset?._id)}
                           htmlFor="my_modal_6"
-                          className="btn btn-sm rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                          className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
                         >
-                          <FiEdit size={22} />
+                          Approve
                         </label>
-                      </Link>
+                      ) : (
+                        <span>Approved</span>
+                      )}
                     </th>
                     <th>
                       <label
@@ -102,7 +116,7 @@ const AssetList = () => {
                         htmlFor="my_modal_6"
                         className="btn btn-sm rounded-md  bg-[#d15454] hover:bg-[#eba43b] text-white"
                       >
-                        <AiFillDelete size={22} />
+                        Reject
                       </label>
                     </th>
                   </tr>
@@ -116,4 +130,4 @@ const AssetList = () => {
   );
 };
 
-export default AssetList;
+export default CustomRequestList;

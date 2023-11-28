@@ -1,8 +1,7 @@
 // import { axiosSecure } from "../Hooks/useAxiosSecure";
 
-
 // get custom request asset
-// export const updateCustomAsset = async (id) => {
-// 	const { data } = await axiosSecure.put(`/asset-update/${id}`);
-// 	return data;
-//   };
+// export const getCustomAsset = async () => {
+//   const { data } = await axiosSecure("/custom-asset");
+//   return data;
+// };

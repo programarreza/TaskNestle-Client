@@ -15,7 +15,7 @@ const MyCustomRequest = () => {
 
   console.log("role", role);
 
-  const { data: assets } = useQuery({
+  const { data: assets, refetch } = useQuery({
     enabled: !loading ,
     queryFn: async () => await getCustomAsset(user?.email),
     queryKey: ["custom-assets"],
@@ -32,7 +32,7 @@ const MyCustomRequest = () => {
       .get(`http://localhost:5000/custom-asset/${id}`)
       .then((res) => {
         setAsset(res.data);
-        
+        refetch()
       })
       .catch((err) => console.log(err));
       // console.log(data);

@@ -1,13 +1,13 @@
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import { axiosSecure } from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
+import { axiosSecure } from "../../../Hooks/useAxiosSecure";
+
+
 
 const AddAsset = () => {
   const { user } = useAuth();
-  const navigate = useNavigate();
 
   const {
     register,

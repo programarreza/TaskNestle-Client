@@ -8,6 +8,7 @@ import JoinAdmin from "../Pages/JoinAdmin/JoinAdmin";
 import JoinEmployee from "../Pages/JoinEmployee/JoinEmployee";
 import Login from "../Pages/Login/Login";
 import ProductUpdate from "../components/Admin/ProductUpdate/ProductUpdate";
+import CustomRequestList from "../Pages/Admin/CustomRequestList/CustomRequestList";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      
+
       // without login
       {
         path: "join-employee",
@@ -49,9 +50,14 @@ const router = createBrowserRouter([
         element: <AssetList />,
       },
       {
+        path: "custom-request-list",
+        element: <CustomRequestList />,
+      },
+      {
         path: "/product-update/:id",
         element: <ProductUpdate />,
-        loader: ({ params }) => fetch(`http://localhost:5000/asset/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/asset/${params.id}`),
       },
     ],
   },

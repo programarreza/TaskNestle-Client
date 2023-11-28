@@ -1,12 +1,8 @@
 import { useState } from "react";
 import CustomAssetUpdate from "../Employee/CustomAssetUpdate";
-import { useForm } from "react-hook-form";
-import useAxiosLocal from "../../Hooks/useAxiosLocal";
-import toast from "react-hot-toast";
-import { imageUpload } from "../../api/Utils/Utils";
 
 const Modal = ({ modalId, asset }) => {
-  // console.log(asset);
+  
   const {
     additional,
     assetInfo,
@@ -49,7 +45,7 @@ const Modal = ({ modalId, asset }) => {
                       <th>Additional info</th>
                       <th>Status</th>
                       <th>Action</th>
-                      {/* <th>Action</th> */}
+                     
                     </tr>
                   </thead>
                   <tbody>
@@ -79,9 +75,7 @@ const Modal = ({ modalId, asset }) => {
                           update
                         </button>
                       </th>
-                      {/* <th>
-                    <button className="btn">btn</button>
-                  </th> */}
+                      
                     </tr>
                   </tbody>
                 </table>
@@ -93,8 +87,6 @@ const Modal = ({ modalId, asset }) => {
               </div>
             </>
           )}
-
-          {/* update form */}
         </div>
       </div>
     </>

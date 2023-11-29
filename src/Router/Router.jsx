@@ -5,12 +5,13 @@ import AssetList from "../Pages/Admin/AssetList/AssetList";
 import CustomRequestList from "../Pages/Admin/CustomRequestList/CustomRequestList";
 import MyEmployeeList from "../Pages/Admin/MyEmployeeList/MyEmployeeList";
 import CustomRequest from "../Pages/Employee/CustomRequest/CustomRequest";
+import RequestAnAsset from "../Pages/Employee/RequestAnAsset/RequestAnAsset";
 import Home from "../Pages/Home/Home";
 import JoinAdmin from "../Pages/JoinAdmin/JoinAdmin";
 import JoinEmployee from "../Pages/JoinEmployee/JoinEmployee";
 import Login from "../Pages/Login/Login";
 import ProductUpdate from "../components/Admin/ProductUpdate/ProductUpdate";
-import RequestAnAsset from "../Pages/Employee/RequestAnAsset/RequestAnAsset";
+import AllRequests from "../Pages/Admin/AllRequests/AllRequests";
 
 const router = createBrowserRouter([
   {
@@ -46,11 +47,6 @@ const router = createBrowserRouter([
         element: <RequestAnAsset />,
       },
 
-
-
-
-      
-
       // admin territory
       {
         path: "add-asset",
@@ -67,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "my-employee-list",
         element: <MyEmployeeList />,
+      },
+      {
+        path: "all-request",
+        element: <AllRequests />,
       },
       {
         path: "/product-update/:id",

@@ -31,9 +31,9 @@ const AddAsset = () => {
       .post("/add-product", assetInfo)
       .then((res) => {
         if (res.data.insertedId) {
+          reset();
           toast.success("Product Added Successfully");
           console.log(res.data);
-          reset();
           //   navigate("/");
         }
       })
@@ -66,23 +66,29 @@ const AddAsset = () => {
                 className="card-body w-[350px]"
               >
                 <h2 className="text-center text-3xl font-bold">Add An Asset</h2>
-                <div className="form-control">
-                  <label className="label">
-                    {/* <span className="label-text">Full Name</span> */}
-                  </label>
-                  <input
-                    type="text"
-                    {...register("productName", { required: true })}
-                    placeholder="Product Name"
-                    className="input input-bordered"
-                  />
-                  {errors.name && (
-                    <span className="text-[#D1A054]">
-                      Product Name is required
-                    </span>
-                  )}
-                </div>
 
+                <div className="form-control">
+                  <label className="label"></label>
+
+                  <select
+                    className="border py-3 rounded-md"
+                    {...register("productName", { required: true })}
+                  >
+                    <option disabled selected required>
+                      Product Name
+                    </option>
+                    <option value="laptop">laptop</option>
+                    <option value="keyboard">keyboard</option>
+                    <option value="mouse">mouse</option>
+                    <option value="chair">chair</option>
+                    <option value="desk">desk</option>
+                    <option value="pens">pens</option>
+                    <option value="pencils">pencils</option>
+                    <option value="paper">paper</option>
+                    <option value="diaries">diaries</option>
+                    <option value=" tissue paper"> tissue paper</option>
+                  </select>
+                </div>
                 <div className="form-control">
                   <label className="label"></label>
 
@@ -93,11 +99,8 @@ const AddAsset = () => {
                     <option disabled selected required>
                       Product Type
                     </option>
-                    <option value="laptop">laptop</option>
-                    <option value="keyboard">keyboard</option>
-                    <option value="chair">chair</option>
-                    <option value="desk">desk</option>
-                    <option value="phone">phone</option>
+                    <option value="Returnable">Returnable</option>
+                    <option value="Non-returnable">Non-returnable</option>
                   </select>
                 </div>
 

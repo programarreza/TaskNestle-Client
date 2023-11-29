@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import CustomAssetUpdate from "../Employee/CustomAssetUpdate";
 
-const Modal = ({ modalId, asset }) => {
-  
+const Modal = ({ asset }) => {
+  // console.log(asset);
   const {
     additional,
     assetInfo,
@@ -12,7 +13,7 @@ const Modal = ({ modalId, asset }) => {
     name,
     price,
     status,
-    _id,
+    // _id,
   } = asset;
   console.log(asset);
   const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +23,14 @@ const Modal = ({ modalId, asset }) => {
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box relative max-w-none">
-          {isOpen ?  (
+          {isOpen ? (
             // update filed
             <>
-              <CustomAssetUpdate asset={asset} setIsOpen={setIsOpen} isOpen={isOpen}/>
-               
+              <CustomAssetUpdate
+                asset={asset}
+                setIsOpen={setIsOpen}
+                isOpen={isOpen}
+              />
             </>
           ) : (
             // table
@@ -45,7 +49,7 @@ const Modal = ({ modalId, asset }) => {
                       <th>Additional info</th>
                       <th>Status</th>
                       <th>Action</th>
-                     
+                      {/* <th>Action</th> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -75,7 +79,6 @@ const Modal = ({ modalId, asset }) => {
                           update
                         </button>
                       </th>
-                      
                     </tr>
                   </tbody>
                 </table>
@@ -94,3 +97,6 @@ const Modal = ({ modalId, asset }) => {
 };
 
 export default Modal;
+Modal.propTypes = {
+  asset: PropTypes.node,
+};

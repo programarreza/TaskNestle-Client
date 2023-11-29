@@ -10,6 +10,7 @@ import JoinAdmin from "../Pages/JoinAdmin/JoinAdmin";
 import JoinEmployee from "../Pages/JoinEmployee/JoinEmployee";
 import Login from "../Pages/Login/Login";
 import ProductUpdate from "../components/Admin/ProductUpdate/ProductUpdate";
+import RequestAnAsset from "../Pages/Employee/RequestAnAsset/RequestAnAsset";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,15 @@ const router = createBrowserRouter([
         path: "custom-request",
         element: <CustomRequest />,
       },
+      {
+        path: "request-asset",
+        element: <RequestAnAsset />,
+      },
+
+
+
+
+      
 
       // admin territory
       {

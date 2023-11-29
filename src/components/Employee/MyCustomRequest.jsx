@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+import { axiosSecure } from "../../Hooks/useAxiosSecure";
 import useUserRole from "../../Hooks/useUserRole";
 import { getCustomAsset } from "../../api/auth";
 import Loading from "../Loading/Loading";
@@ -16,7 +16,7 @@ const MyCustomRequest = () => {
   console.log("role", role);
 
   const { data: assets, refetch } = useQuery({
-    enabled: !loading ,
+    enabled: !loading,
     queryFn: async () => await getCustomAsset(user?.email),
     queryKey: ["custom-assets"],
   });
@@ -26,18 +26,15 @@ const MyCustomRequest = () => {
   }
   console.log(assets);
 
-  const handleSingleData = async(id) => {
-    // console.log(id);
-    await axios
-      .get(`http://localhost:5000/custom-asset/${id}`)
+  const handleSingleData = async (id) => {
+    await axiosSecure
+      .get(`/custom-asset/${id}`)
       .then((res) => {
         setAsset(res.data);
-        refetch()
+        refetch();
       })
       .catch((err) => console.log(err));
-      
   };
-
 
   return (
     <Container>

@@ -18,7 +18,6 @@ const AllRequests = () => {
   if (loading || !requestAssets) {
     return <Loading />;
   }
-//   console.log(requestAssets.data);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -32,8 +31,7 @@ const AllRequests = () => {
       confirmButtonText: "Yes, Reject!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/request-asset/${id}`)
-		.then((res) => {
+        axiosSecure.delete(`/request-asset/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount) {
             refetch();
@@ -46,6 +44,7 @@ const AllRequests = () => {
 
   const statusInfo = {
     status: "approved",
+    approvedDate: new Date(),
   };
   const handleApprove = (id) => {
     console.log(id);

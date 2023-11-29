@@ -12,6 +12,7 @@ import JoinEmployee from "../Pages/JoinEmployee/JoinEmployee";
 import Login from "../Pages/Login/Login";
 import ProductUpdate from "../components/Admin/ProductUpdate/ProductUpdate";
 import AllRequests from "../Pages/Admin/AllRequests/AllRequests";
+import MyAssets from "../Pages/Employee/MyAssets/MyAssets";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
         path: "request-asset",
         element: <RequestAnAsset />,
       },
+      {
+        path: "my-assets",
+        element: <MyAssets />,
+      },
 
       // admin territory
       {
@@ -68,6 +73,7 @@ const router = createBrowserRouter([
         path: "all-request",
         element: <AllRequests />,
       },
+
       {
         path: "/product-update/:id",
         element: <ProductUpdate />,

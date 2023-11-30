@@ -34,7 +34,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost text-xl">
-            TaskNestle
+            <img className="w-20" src="https://i.postimg.cc/RFRx86f7/Layer-601321.png" alt="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

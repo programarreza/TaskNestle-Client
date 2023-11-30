@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { axiosSecure } from "../../Hooks/useAxiosSecure";
-import useUserRole from "../../Hooks/useUserRole";
+// import useUserRole from "../../Hooks/useUserRole";
 import { getCustomAsset } from "../../api/auth";
 import Loading from "../Loading/Loading";
 import Modal from "../Modal/Modal";
@@ -10,10 +10,10 @@ import Container from "../shared/Container/Container";
 
 const MyCustomRequest = () => {
   const { user, loading } = useAuth();
-  const [role] = useUserRole();
+  // const [role] = useUserRole();
   const [asset, setAsset] = useState({});
 
-  console.log("role", role);
+  // console.log("role", role);
 
   const { data: assets, refetch } = useQuery({
     enabled: !loading,

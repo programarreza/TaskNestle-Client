@@ -3,7 +3,12 @@ import { axiosSecure } from "../Hooks/useAxiosSecure";
 // get the user role
 export const getUserRole = async (email) => {
   const { data } = await axiosSecure(`/users/${email}`);
-  return data.role;
+  return data;
+};
+// Get pending role user
+export const getPendingRole = async (email) => {
+  const { data } = await axiosSecure(`/pendingUser/${email}`);
+  return data;
 };
 
 // get custom request asset

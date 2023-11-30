@@ -14,6 +14,7 @@ import ProductUpdate from "../components/Admin/ProductUpdate/ProductUpdate";
 import AllRequests from "../Pages/Admin/AllRequests/AllRequests";
 import MyAssets from "../Pages/Employee/MyAssets/MyAssets";
 import MyTeam from "../Pages/Employee/MyTeam/MyTeam";
+import Payment from "../Pages/Admin/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
       {
         path: "all-request",
         element: <AllRequests />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
 
       {

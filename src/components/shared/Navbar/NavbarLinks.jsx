@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import useUserRole from "../../../Hooks/useUserRole";
 
 const NavbarLinks = () => {
   const { user } = useAuth();
-  const [role] = useUserRole();
+  const [userRole] = useUserRole();
 
   return (
     <div className="flex gap-4">
@@ -16,9 +16,12 @@ const NavbarLinks = () => {
       >
         Home
       </NavLink>
+      <Link to={"/payment"}>
+        <button>payment</button>
+      </Link>
 
       {/* Without Login */}
-      {!user && <>
+      { (!user || userRole === "pending") &&   <>
       <NavLink
             to="join-employee"
             className={({ isActive, isPending }) =>
@@ -46,7 +49,7 @@ const NavbarLinks = () => {
       </> }
 
       {/* For Normal Employee (after Login) */}
-      {role === "employee" && (
+      {( user && userRole === "employee") && (
         <>
           <NavLink
             to="my-assets"
@@ -84,7 +87,7 @@ const NavbarLinks = () => {
       )}
 
       {/* Admin (after Login) */}
-      {role === "admin" && <><NavLink
+      {(user && userRole === "admin") && <><NavLink
         to="asset-list"
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "active" : ""

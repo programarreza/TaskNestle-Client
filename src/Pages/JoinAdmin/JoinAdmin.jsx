@@ -42,13 +42,13 @@ const JoinAdmin = () => {
             image: imageData?.data?.display_url,
             package: data.package,
             companyName: data.companyName,
-            role: "admin",
+            role: "pending",
           };
           axiosLocal.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
               toast.success("SignUp Successfully");
               reset();
-              navigate("/");
+              navigate("/payment");
             }
           });
         })
@@ -205,9 +205,9 @@ const JoinAdmin = () => {
                     <option disabled selected required>
                       Package Details
                     </option>
-                    <option value="1">5 Members for $5</option>
-                    <option value="2">10 Members for $8</option>
-                    <option value="3">20 Members for $15</option>
+                    <option value="5">5 Members for $5</option>
+                    <option value="8">10 Members for $8</option>
+                    <option value="15">20 Members for $15</option>
                   </select>
                 </div>
 

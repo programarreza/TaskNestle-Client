@@ -13,6 +13,7 @@ import Login from "../Pages/Login/Login";
 import ProductUpdate from "../components/Admin/ProductUpdate/ProductUpdate";
 import AllRequests from "../Pages/Admin/AllRequests/AllRequests";
 import MyAssets from "../Pages/Employee/MyAssets/MyAssets";
+import MyTeam from "../Pages/Employee/MyTeam/MyTeam";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "my-assets",
         element: <MyAssets />,
+      },
+      {
+        path: "my-team",
+        element: <MyTeam />,
       },
 
       // admin territory

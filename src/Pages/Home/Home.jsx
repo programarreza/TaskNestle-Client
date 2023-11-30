@@ -1,7 +1,7 @@
 import About from "../../components/About/About";
-import MyCustomRequest from "../../components/Employee/MyCustomRequest";
 import Banner from "../../components/Header/Banner/Bannar";
 import Packages from "../../components/Packages/Packages";
+import EmployeeHome from "../Employee/EmployeeHome/EmployeeHome";
 
 const Home = () => {
   return (
@@ -12,8 +12,8 @@ const Home = () => {
       <About />
 
       {/* employee section */}
-      <MyCustomRequest />
-
+      
+      <EmployeeHome />
     </div>
   );
 };

@@ -58,7 +58,7 @@ const MyEmployeeList = () => {
             our organization.
           </p>
         </div>
-        <div className="grid grid-cols-3  ">
+        <div className="grid grid-cols-4  ">
           {users?.data?.map((user, i) => (
             <>
               <div key={i} className="card w-64 bg-base-100">

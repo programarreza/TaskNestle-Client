@@ -17,6 +17,11 @@ export const getAllAsset = async () => {
   return data;
 };
 
+export const getTeamMember = async () => {
+  const { data } = await axiosSecure('/all-users');
+  return data;
+};
+
 // get custom request asset
 export const getAsset = async (email) => {
   const { data } = await axiosSecure(`/assets/${email}`);
@@ -26,6 +31,14 @@ export const getAsset = async (email) => {
 // get my request asset
 export const getMyAssets = async (email) => {
   const { data } = await axiosSecure(`/request-assets/${email}`);
+  return data;
+};
+
+
+
+// get my request asset
+export const getPendingAssets = async (email) => {
+  const { data } = await axiosSecure(`/pending-assets/${email}`);
   return data;
 };
 

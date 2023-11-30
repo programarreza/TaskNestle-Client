@@ -29,7 +29,7 @@ const MyAssets = () => {
       customClass: "swal-wide",
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Reject!",
+      confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/request-asset/${id}`).then((res) => {
@@ -50,6 +50,10 @@ const MyAssets = () => {
     axiosSecure.patch(`/request-asset/${id}`, typeInfo);
     refetch();
   };
+
+  if(assets.length === 0){
+    return <h1 className="flex justify-center items-center text-4xl font-semibold h-[90vh]"> Assets Not Available</h1>
+  }
 
   return (
     <Container>

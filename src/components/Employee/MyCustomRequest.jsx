@@ -32,6 +32,7 @@ const MyCustomRequest = () => {
       .then((res) => {
         setAsset(res.data);
         refetch();
+        console.log(res.data);
       })
       .catch((err) => console.log(err));
   };

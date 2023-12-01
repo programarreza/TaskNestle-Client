@@ -40,11 +40,11 @@ const JoinEmployee = () => {
             email: data.email,
             dob: data.dob,
             image: imageData?.data?.display_url,
-            role: "employee",
+            role: "user",
           };
           axiosLocal.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
-              toast.success("SignUp Successfully");
+              toast.success("Thank you for request");
               reset();
               navigate("/");
             }

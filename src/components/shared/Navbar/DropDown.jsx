@@ -4,7 +4,6 @@ import useAuth from "../../../Hooks/useAuth";
 const DropDown = () => {
   const { user, logOut } = useAuth();
   const [isShow, setIsShow] = useState(false);
-  console.log(isShow);
 
   return (
     <>

@@ -5,6 +5,12 @@ export const getUserRole = async (email) => {
   const { data } = await axiosSecure(`/users/${email}`);
   return data;
 };
+
+export const getEmployee = async () => {
+  const { data } = await axiosSecure(`/users`);
+  return data;
+};
+
 // Get pending role user
 export const getPendingRole = async (email) => {
   const { data } = await axiosSecure(`/pendingUser/${email}`);
@@ -27,6 +33,18 @@ export const getTeamMember = async () => {
   return data;
 };
 
+// get packages
+export const getPackage = async () => {
+  const { data } = await axiosSecure('/packages');
+  return data;
+};
+
+// get single package
+export const getSinglePackage = async (id) => {
+  const { data } = await axiosSecure(`/singePackage/${id}`);
+  return data;
+};
+
 // get custom request asset
 export const getAsset = async (email) => {
   const { data } = await axiosSecure(`/assets/${email}`);
@@ -46,5 +64,7 @@ export const getPendingAssets = async (email) => {
   const { data } = await axiosSecure(`/pending-assets/${email}`);
   return data;
 };
+
+
 
 

@@ -20,6 +20,8 @@ const NavbarLinks = () => {
         <button>payment</button>
       </Link>
 
+      {!user || userRole === "user" && <p className="text-red-500 font-bold bg-[#c7bfbf] p-1">Please Contact Your HR  </p> }
+
       {/* Without Login */}
       { (!user || userRole === "pending") &&   <>
       <NavLink

@@ -18,6 +18,7 @@ const CheckOut = () => {
   const [users, refetch] = useUser();
   const price = users?.package;
   const navigate = useNavigate();
+  
  
 
   useEffect(() => {
@@ -85,6 +86,8 @@ const CheckOut = () => {
           status: "successfully",
           role: users?.role,
           limit: parseInt(price),
+          // TODO: get single package : member limit value send korte hobe 
+          // newValue : 10,
         };
         console.log(payment);
 

@@ -1,25 +1,20 @@
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../../Hooks/useAuth";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 import { axiosSecure } from "../../../Hooks/useAxiosSecure";
+import useEmployee from "../../../Hooks/useEmployee";
 import Loading from "../../../components/Loading/Loading";
 import Container from "../../../components/shared/Container/Container";
-import Swal from "sweetalert2";
-import toast from "react-hot-toast";
-import '../../../index.css'
+import '../../../index.css';
 
 const MyEmployeeList = () => {
-  const { loading } = useAuth();
 
-  const { data: users, refetch } = useQuery({
-    enabled: !loading,
-    queryFn: async () => await axiosSecure("/users"),
-    queryKey: ["users"],
-  });
+  const [employee, refetch, loading] = useEmployee()
 
-  if (loading || !users) {
+  if (loading && !employee) {
     return <Loading />;
   }
-  console.log(users.data);
+
+  console.log(employee);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -59,7 +54,7 @@ const MyEmployeeList = () => {
           </p>
         </div>
         <div className="grid grid-cols-4  ">
-          {users?.data?.map((user, i) => (
+          {employee?.map((user, i) => (
             <>
               <div key={i} className="card w-64 bg-base-100">
                 <div className="avatar">

@@ -17,7 +17,7 @@ export const imageUpload = async (image) => {
 export const saveUser = async (user) => {
   const currentUser = {
     email: user?.email,
-    role: "employee",
+    role: "user",
   };
   const { data } = await axiosSecure.put(`/users/${user?.email}`, currentUser);
   return data;

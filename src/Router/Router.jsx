@@ -15,6 +15,8 @@ import AllRequests from "../Pages/Admin/AllRequests/AllRequests";
 import MyAssets from "../Pages/Employee/MyAssets/MyAssets";
 import MyTeam from "../Pages/Employee/MyTeam/MyTeam";
 import Payment from "../Pages/Admin/Payment/Payment";
+import AddEmployee from "../Pages/Admin/AddEmployee/AddEmployee";
+import Package from "../Pages/Package/Package";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +84,16 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+
+      {
+        path: "add-employee",
+        element: <AddEmployee />,
+      },
+
+      {
+        path: "package",
+        element: <Package />,
       },
 
       {

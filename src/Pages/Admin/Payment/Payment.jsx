@@ -8,6 +8,8 @@ const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK);
 const Payment = () => {
  const [users] = useUser()
  console.log(users);
+//  const data = localStorage.getItem('data')
+//  console.log(data);
 
   return (
     <div>

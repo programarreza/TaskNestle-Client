@@ -1,23 +1,34 @@
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+import useAuth from "../../../Hooks/useAuth";
+import { axiosSecure } from "../../../Hooks/useAxiosSecure";
 import Loading from "../../../components/Loading/Loading";
 import Container from "../../../components/shared/Container/Container";
-import useAuth from "../../../Hooks/useAuth";
-import Swal from "sweetalert2";
-import { axiosSecure } from "../../../Hooks/useAxiosSecure";
-import toast from "react-hot-toast";
+
 
 const AllRequests = () => {
-  const { loading } = useAuth();
+  const {user,  loading } = useAuth();
+  const [searchValue, setSearchValue] = useState([]);
+  const [assets, setAssets] = useState([]);
 
-  const { data: requestAssets, refetch } = useQuery({
-    enabled: !loading,
-    queryFn: async () => await axiosSecure("/request-asset"),
-    queryKey: ["request-asset"],
-  });
+  useEffect(() => {
+    axiosSecure(`/request-asset/${user?.email}?email=${searchValue}`)
+      .then((res) => {
+        console.log(res.data);
+        setAssets(res.data);
+      })
+      .then((err) => {
+        console.log(err);
+      });
+  }, [searchValue, user?.email]);
 
-  if (loading || !requestAssets) {
+  if (loading || !assets) {
     return <Loading />;
   }
+console.log(searchValue);
+console.log(37, assets);
+
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -34,7 +45,7 @@ const AllRequests = () => {
         axiosSecure.delete(`/request-asset/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount) {
-            refetch();
+            // refetch();
             toast.success("Reject Done!");
           }
         });
@@ -49,12 +60,24 @@ const AllRequests = () => {
   const handleApprove = (id) => {
     console.log(id);
     axiosSecure.patch(`/request-asset-update/${id}`, statusInfo);
-    refetch();
   };
 
   return (
     <Container>
       <div className="py-12 h-screen">
+      <div className="flex items-center justify-center gap-2 mb-6">
+          <div>
+            <input
+              className="border py-3 px-12 rounded-lg border-[#D1A054] outline-[#D1A054]"
+              type="text"
+              placeholder="Search by email address"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+          </div>
+
+          
+        </div>
         <h2 className="text-4xl text-center uppercase font-semibold">
           All Request
         </h2>
@@ -77,7 +100,7 @@ const AllRequests = () => {
                 </tr>
               </thead>
               <tbody>
-                {requestAssets?.data?.map((asset) => (
+                {assets?.length ? <>{assets?.map((asset) => (
                   <tr key={asset._id}>
                     <td>
                       <div className="flex items-center gap-3">
@@ -113,7 +136,7 @@ const AllRequests = () => {
                       </label>
                     </th>
                   </tr>
-                ))}
+                ))}</> : <p className="text-2xl font-semibold my-5">No Data Available</p>}
               </tbody>
             </table>
           </div>

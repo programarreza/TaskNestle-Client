@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { axiosSecure } from "../../Hooks/useAxiosSecure";
-// import useUserRole from "../../Hooks/useUserRole";
+
 import { getCustomAsset } from "../../api/auth";
 import Loading from "../Loading/Loading";
 import Modal from "../Modal/Modal";
@@ -10,10 +10,7 @@ import Container from "../shared/Container/Container";
 
 const MyCustomRequest = () => {
   const { user, loading } = useAuth();
-  // const [role] = useUserRole();
   const [asset, setAsset] = useState({});
-
-  // console.log("role", role);
 
   const { data: assets, refetch } = useQuery({
     enabled: !loading,
@@ -37,14 +34,14 @@ const MyCustomRequest = () => {
       .catch((err) => console.log(err));
   };
 
-  if(assets.length > 0){
+  if (assets.length > 0) {
     return (
       <Container>
         <div className="py-12 h-screen shadow-xl rounded-lg my-12 ">
           <h2 className="text-4xl text-center uppercase font-semibold">
             My custom request{" "}
           </h2>
-  
+
           <div>
             <div className="overflow-x-auto ">
               <table className="table text-center my-12">

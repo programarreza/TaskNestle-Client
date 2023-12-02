@@ -11,7 +11,7 @@ const useUserRole = () => {
   });
   const userRole = users?.role;
   console.log(userRole);
-  // console.log(users);
+  console.log(14, users);
 
   return [userRole, users, isLoading];
 };

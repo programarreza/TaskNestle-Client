@@ -1,22 +1,33 @@
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import { axiosSecure } from "../../../Hooks/useAxiosSecure";
-import { getAsset } from "../../../api/auth";
 import Loading from "../../../components/Loading/Loading";
 import Container from "../../../components/shared/Container/Container";
-import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
 
 const AssetList = () => {
   const { user, loading } = useAuth();
+  const [searchValue, setSearchValue] = useState([]);
+  const [type, setType] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [assets, setAssets] = useState([]);
 
-  const { data: assets, refetch } = useQuery({
-    enabled: !loading,
-    queryFn: async () => await getAsset(user?.email),
-    queryKey: ["assets"],
-  });
+  const typeValue = ["Returnable", "Non-returnable"];
+  console.log(quantity);
+
+  useEffect(() => {
+    axiosSecure(`/assets/${user?.email}?name=${searchValue}&type=${type}&sortField=quantity&sortOrder=${quantity}`)
+      .then((res) => {
+        console.log(res.data);
+        setAssets(res.data);
+      })
+      .then((err) => {
+        console.log(err);
+      });
+  }, [searchValue, type, user?.email, quantity]);
 
   if (loading || !assets) {
     return <Loading />;
@@ -38,7 +49,7 @@ const AssetList = () => {
           console.log(res.data);
           if (res.data.deletedCount) {
             console.log(id);
-            refetch();
+            // refetch();
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
@@ -55,6 +66,50 @@ const AssetList = () => {
   return (
     <Container>
       <div className="py-12 h-screen">
+        {/* search & filter */}
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <div>
+            <input
+              className="border py-3 px-12 rounded-lg border-[#D1A054] outline-[#D1A054]"
+              type="text"
+              placeholder="Search by Asset Name"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <select
+              onChange={(e) => setType(e.target.value)}
+              className="select select-bordered rounded-md border  border-[#D1A054]"
+              required
+            >
+              <option disabled selected>
+                Type
+              </option>
+              {typeValue?.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <select
+              onChange={(e) => setQuantity(e.target.value)}
+              className="select select-bordered rounded-md border  border-[#D1A054]"
+              required
+            >
+              <option disabled selected>
+                Quantity
+              </option>
+
+              <option value="asc">Low to high</option>
+              <option value="desc">High to low</option>
+            </select>
+          </div>
+        </div>
         <h2 className="text-4xl text-center uppercase font-semibold">
           Asset List
         </h2>

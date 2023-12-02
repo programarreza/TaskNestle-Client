@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 const AddEmployee = () => {
   const { user } = useAuth();
-  const [employee, loading, refetch] = useEmployee();
+  const [employee, loading] = useEmployee();
   const [normalUsers, setNormalUser] = useState("");
 
   useEffect(() => {

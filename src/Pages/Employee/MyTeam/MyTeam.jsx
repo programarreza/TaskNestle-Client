@@ -1,22 +1,15 @@
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../../Hooks/useAuth";
+import useEmployee from "../../../Hooks/useEmployee";
 import Loading from "../../../components/Loading/Loading";
-import { getTeamMember } from "../../../api/auth";
 import Container from "../../../components/shared/Container/Container";
 
 const MyTeam = () => {
-  const { loading } = useAuth();
-  const { data: users, refetch } = useQuery({
-    enabled: !loading,
-    queryFn: async () => await getTeamMember(),
-    queryKey: ["my-team"],
-  });
+  const [employee, loading, refetch] = useEmployee();
 
-  if (loading || !users) {
+  if (loading && !employee) {
     return <Loading />;
   }
 
-  console.log(users);
+  console.log(employee);
 
   return (
     <Container>
@@ -34,7 +27,7 @@ const MyTeam = () => {
             </p>
           </div>
           <div className="grid grid-cols-3 gap-4">
-            {users.map((user) => (
+            {employee.map((user) => (
               <>
                 <div className="card card-compact w-96 bg-base-100 shadow-xl">
                   <figure className="w-full h-80">
@@ -58,8 +51,8 @@ const MyTeam = () => {
         {/* team member list */}
         <div>
           {" "}
-          <div>
-            <div className="max-w-2xl mx-auto py-12 space-y-4">
+          <div className=" my-24 shadow-lg rounded-2xl mx-auto p-4">
+            <div className="max-w-2xl mx-auto space-y-4 p-12">
               <h2 className="text-4xl font-semibold text-center ">
                 My Member List
               </h2>
@@ -70,9 +63,9 @@ const MyTeam = () => {
               </p>
             </div>
             <div className="grid grid-cols-4  ">
-              {users?.map((user, i) => (
+              {employee?.map((user, i) => (
                 <>
-                  <div key={i} className="card w-64 bg-base-100">
+                  <div key={i} className="card w-52 bg-base-100">
                     <div className="avatar">
                       <div className="w-full rounded-full">
                         <img src={user?.image} />

@@ -44,7 +44,7 @@ const CustomRequest = () => {
       .then((res) => {
         if (res.data.insertedId) {
           toast.success("Request Successfully");
-          // reset();
+          reset();
           // navigate("/");
         }
       })

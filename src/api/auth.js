@@ -23,15 +23,15 @@ export const getCustomAsset = async (email) => {
   return data;
 };
 
-export const getAllAsset = async () => {
-  const { data } = await axiosSecure('/assets');
-  return data;
-};
+// export const getAllAsset = async () => {
+//   const { data } = await axiosSecure('/assets');
+//   return data;
+// };
 
-export const getTeamMember = async () => {
-  const { data } = await axiosSecure('/all-users');
-  return data;
-};
+// export const getTeamMember = async () => {
+//   const { data } = await axiosSecure('/all-users');
+//   return data;
+// };
 
 // get packages
 export const getPackage = async () => {

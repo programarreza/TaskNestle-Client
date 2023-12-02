@@ -1,18 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import { axiosSecure } from "../../../Hooks/useAxiosSecure";
-import { getAllAsset } from "../../../api/auth";
-import Loading from "../../../components/Loading/Loading";
+// import { getAllAsset } from "../../../api/auth";
+// import Loading from "../../../components/Loading/Loading";
 import Container from "../../../components/shared/Container/Container";
 
 const RequestAnAsset = () => {
   const { user, loading } = useAuth();
-  const [asset, setAsset] = useState({});
+  const [searchValue, setSearchValue] = useState("");
+  const [assets, setAssets] = useState(searchValue);
+  const [type, setType] = useState('')
   const navigate = useNavigate();
+
+
 
   const {
     register,
@@ -21,15 +25,30 @@ const RequestAnAsset = () => {
     formState: { errors },
   } = useForm();
 
-  const { data: assets, refetch } = useQuery({
-    enabled: !loading,
-    queryFn: async () => await getAllAsset(),
-    queryKey: ["assets"],
-  });
+    const typeValue = [
+    "Returnable",
+    "Non-returnable",
+  ];
 
-  if (loading || !assets) {
-    return <Loading />;
-  }
+  // const { data: assets, refetch } = useQuery({
+  //   enabled: !loading,
+  //   queryFn: async () => await getAllAsset(),
+  //   queryKey: ["assets"],
+  // });
+  // if (loading || !assets) {
+  //   return <Loading />;
+  // }
+
+  useEffect(() => {
+    axiosSecure(`/assets?name=${searchValue}&type=${type}`)
+      .then((res) => {
+        console.log(res.data);
+        setAssets(res.data);
+      })
+      .then((err) => {
+        console.log(err);
+      });
+  }, [searchValue, type]);
 
   const onSubmit = async (data) => {
     const assetInfo = {
@@ -60,9 +79,40 @@ const RequestAnAsset = () => {
       });
   };
 
+  console.log(75, assets);
+  console.log(83, type);
+
   return (
     <Container>
-      <div className="py-12 h-screen">
+      <div className="py-6 h-screen">
+        <div className="flex items-center justify-center gap-2 mb-6">
+        <div>
+          <input
+            className="border py-3 px-12 rounded-lg border-[#D1A054] outline-[#D1A054]"
+            type="text"
+            placeholder="Search by Asset Name"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+        </div>
+
+        <div>
+        <select
+          onChange={(e) => setType(e.target.value)}
+          className="select select-bordered rounded-md border  border-[#D1A054]"
+          required
+        >
+          <option disabled selected>
+            Type
+          </option>
+          {typeValue?.map((item) => (
+            <option key={item} value={item}>
+              {item}
+            </option>
+          ))}
+        </select>
+      </div>
+        </div>
         <h2 className="text-4xl text-center uppercase font-semibold">
           Request For An Asset
         </h2>
@@ -81,7 +131,7 @@ const RequestAnAsset = () => {
                 </tr>
               </thead>
 
-              <tbody>
+              {assets.length ? <tbody>
                 {assets?.map((asset, index) => (
                   <tr key={asset._id}>
                     <th>{index + 1}</th>
@@ -115,7 +165,7 @@ const RequestAnAsset = () => {
                     </th>
                   </tr>
                 ))}
-              </tbody>
+              </tbody> : <p className="text-2xl text-center flex justify-center mx-auto w-full">Search value not match </p>}
             </table>
           </div>
         </div>

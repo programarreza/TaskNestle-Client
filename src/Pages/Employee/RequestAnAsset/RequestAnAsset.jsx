@@ -36,7 +36,7 @@ const RequestAnAsset = () => {
       });
     }, [searchValue, type]);
     
-    console.log(37, asset);
+    // console.log(37, asset);
   const onSubmit = async (data) => {
     const assetInfo = {
       name: asset?.name,
@@ -47,8 +47,9 @@ const RequestAnAsset = () => {
       date: new Date(),
       additionalNotes: data.additionalNotes,
       status: "pending",
+      requestCount: 1,
     };
-    console.log(assetInfo);
+    // console.log(assetInfo);
 
     axiosSecure
       .post("/request-asset", assetInfo)
@@ -65,9 +66,6 @@ const RequestAnAsset = () => {
       });
   };
 
-  console.log(75, assets);
-  console.log(83, type);
-  console.log(84, asset);
 
   return (
     <Container>
@@ -154,7 +152,7 @@ const RequestAnAsset = () => {
                                 htmlFor="my_modal_6"
                                 className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
                               >
-                                Request
+                                Request               
                               </label>
                             </>
                           )}
@@ -198,3 +196,4 @@ const RequestAnAsset = () => {
 };
 
 export default RequestAnAsset;
+                                                                                                                                                                                                                                                                                                        0

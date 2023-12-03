@@ -17,6 +17,19 @@ export const getPendingRole = async (email) => {
   return data;
 };
 
+
+// pending product
+export const getPendingProducts = async (email) => {
+  const { data } = await axiosSecure(`/pending-products/${email}`);
+  return data;
+};
+
+// get top request product 
+export const getTopProducts = async () => {
+  const { data } = await axiosSecure('/top-product');
+  return data;
+};
+
 // get custom request asset
 export const getCustomAsset = async (email) => {
   const { data } = await axiosSecure(`/custom-assets/${email}`);

@@ -26,11 +26,12 @@ const MyAssets = () => {
         console.log(err);
       });
   }, [searchValue, type, user?.email]);
+ 
 
   if (loading || !assets) {
     return <Loading />;
   }
-  console.log(assets);
+  // console.log(assets);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -47,7 +48,7 @@ const MyAssets = () => {
         axiosSecure.delete(`/request-asset/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount) {
-            refetch();
+            // refetch();
             toast.success("Cancel Successfully");
           }
         });

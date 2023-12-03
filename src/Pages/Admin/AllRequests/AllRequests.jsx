@@ -6,7 +6,6 @@ import { axiosSecure } from "../../../Hooks/useAxiosSecure";
 import Loading from "../../../components/Loading/Loading";
 import Container from "../../../components/shared/Container/Container";
 
-
 const AllRequests = () => {
   const {user,  loading } = useAuth();
   const [searchValue, setSearchValue] = useState([]);
@@ -23,12 +22,10 @@ const AllRequests = () => {
       });
   }, [searchValue, user?.email]);
 
+
   if (loading || !assets) {
     return <Loading />;
   }
-console.log(searchValue);
-console.log(37, assets);
-
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -75,7 +72,6 @@ console.log(37, assets);
               onChange={(e) => setSearchValue(e.target.value)}
             />
           </div>
-
           
         </div>
         <h2 className="text-4xl text-center uppercase font-semibold">

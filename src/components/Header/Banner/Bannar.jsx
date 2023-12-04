@@ -15,17 +15,17 @@ const Banner = () => {
       <Swiper
         spaceBetween={30}
         centeredSlides={false}
-        // TODO: unComment the autoPlay system
-        // autoplay={{
-        //   delay: 4500,
-        //   disableOnInteraction: false,
-        // }}
+        
+        autoplay={{
+          delay: 4500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
         navigation={false}
-        // Autoplay,
-        modules={[ Pagination, Navigation]}
+        
+        modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
         <SwiperSlide >
@@ -33,7 +33,7 @@ const Banner = () => {
         </SwiperSlide>
 		
         <SwiperSlide >
-          <Slider heading={"Join Our Team as an Administrative Professional to Contribute Your Skills"} subHeading={"Join our team as an admin and be at the heart of organizational efficiency! Embrace a dynamic role where your organizational prowess and attention to detail are valued. As an integral part of our team"} path={"join-admin"} label={"Join as Admin"}  image={"https://i.postimg.cc/Z5Y2z6MB/people-working-modern-bright-office-workspace-financial-business-company-horizontal-banner-men-women.jpg"}/>
+          <Slider heading={"Join Our Team as an Administrative Professional to Contribute Your Skills"} subHeading={"Join our team as an admin and be at the heart of organizational efficiency! Embrace a dynamic role where your organizational prowess and attention to detail are valued. As an integral part of our team"} path={"join-admin"} label={"Join as Admin"}  image={"https://i.postimg.cc/pdM5W5FQ/414964cd-bcd8-4353-809c-2c6991e0bf36.png"}/>
         </SwiperSlide>
       </Swiper>
     </div>

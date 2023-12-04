@@ -70,8 +70,8 @@ const Chart = () => {
       <div className="h-screen shadow-lg rounded-lg border-t-2 flex ">
       
         <div className="flex items-center">
-          <div className="w-1/2">
-            <PieChart width={600} height={400}>
+          <div className="md:w-1/2">
+            <PieChart width={400} height={400}>
               <Pie
                 data={data}
                 cx="50%"

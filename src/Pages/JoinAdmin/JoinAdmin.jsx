@@ -67,7 +67,7 @@ const JoinAdmin = () => {
 
       <div className="w-full min-h-screen flex bg-cover bg-center">
         <div className="hero">
-          <div className="hero-content flex flex-row  rounded-xl justify-between">
+          <div className="hero-content flex flex-col md:flex-row  rounded-xl justify-between">
             <div className="text-center lg:text-left w-1/2">
               <img
                 className="w-full h-[60vh]"

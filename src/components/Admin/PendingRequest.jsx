@@ -1,25 +1,29 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
-import { getPendingProducts } from "../../api/auth";
+
 import Loading from "../Loading/Loading";
 import Container from "../shared/Container/Container";
-import { axiosSecure } from "../../Hooks/useAxiosSecure";
+
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const PendingRequest = () => {
   const { user, loading } = useAuth();
+  const axiosSecure = useAxiosSecure();
 
   const { data: products, refetch } = useQuery({
     enabled: !loading,
-    queryFn: async () => await getPendingProducts(user?.email),
     queryKey: ["pending-product"],
+
+    queryFn: async () =>
+      await axiosSecure.get(`/pending-products/${user?.email}`),
   });
 
   if (loading || !products) {
     return <Loading />;
   }
-  //   console.log(products);
+  console.log(products?.data);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -80,9 +84,9 @@ const PendingRequest = () => {
                 </tr>
               </thead>
               <tbody>
-                {products?.length ? (
+                {products?.data?.length ? (
                   <>
-                    {products?.map((product) => (
+                    {products?.data?.map((product) => (
                       <tr key={product._id}>
                         <td>
                           <div className="flex items-center gap-3">

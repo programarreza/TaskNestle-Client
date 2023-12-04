@@ -26,10 +26,10 @@ const MyTeam = () => {
               the success of our organization.
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {employee?.map((user) => (
               <>
-                <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                <div className="card card-compact bg-base-100 shadow-xl">
                   <figure className="w-full h-80">
                     <img
                       className="w-full h-full"
@@ -62,7 +62,7 @@ const MyTeam = () => {
                 the success of our organization.
               </p>
             </div>
-            <div className="grid grid-cols-4  ">
+            <div className="grid md:grid-cols-3 lg:grid-cols-4  ">
               {employee?.map((user, i) => (
                 <>
                   <div key={i} className="card w-52 bg-base-100">

@@ -22,40 +22,6 @@ const FrequentlyRequest = () => {
   }
 
   
-  //   Swal.fire({
-  // 	title: "Are you sure?",
-  // 	text: "You won't be able to revert this!",
-  // 	icon: "warning",
-  // 	showCancelButton: true,
-  // 	customClass: "swal-wide",
-  // 	confirmButtonColor: "#3085d6",
-  // 	cancelButtonColor: "#d33",
-  // 	confirmButtonText: "Yes, Reject!",
-  //   }).then((result) => {
-  // 	if (result.isConfirmed) {
-  // 	  axiosSecure.delete(`/request-asset/${id}`).then((res) => {
-  // 		console.log(res.data);
-  // 		if (res.data.deletedCount) {
-  // 		  refetch();
-  // 		  toast.success("Reject Done!");
-  // 		}
-  // 	  });
-  // 	}
-  //   });
-  // };
-
-  // const statusInfo = {
-  //   status: "approved",
-  //   approvedDate: new Date(),
-  // };
-  // const handleApprove = (id) => {
-  //   console.log(id);
-  //   axiosSecure.patch(`/request-asset-update/${id}`, statusInfo);
-  //   toast.success('approved successfully')
-  //   refetch();
-  // };
-
-
 
   const handleDelete = async(id) => {
     Swal.fire({

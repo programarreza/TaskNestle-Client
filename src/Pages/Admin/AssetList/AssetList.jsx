@@ -69,7 +69,7 @@ const AssetList = () => {
     <Container>
       <div className="py-12 h-screen">
         {/* search & filter */}
-        <div className="flex items-center justify-center gap-2 mb-6">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-2 mb-6">
           <div>
             <input
               className="border py-3 px-12 rounded-lg border-[#D1A054] outline-[#D1A054]"

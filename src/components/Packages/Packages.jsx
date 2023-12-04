@@ -7,7 +7,7 @@ const Packages = () => {
       <Container>
         <h2 className="text-4xl font-bold text-center py-12">Our Package </h2>
 
-        <div className="grid grid-cols-3 gap-12 mb-12">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-5 xl:gap-12 mb-12">
           <div className="card card-compact bg-base-100 shadow-xl ">
             <div className="card-body ">
               <h2 className="card-title text-center mx-auto text-2xl border-b-2 pb-4">

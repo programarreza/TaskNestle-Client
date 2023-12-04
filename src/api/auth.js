@@ -19,10 +19,10 @@ export const getPendingRole = async (email) => {
 
 
 // pending product
-export const getPendingProducts = async (email) => {
-  const { data } = await axiosSecure(`/pending-products/${email}`);
-  return data;
-};
+// export const getPendingProducts = async (email) => {
+//   const { data } = await axiosSecure(`/pending-products/${email}`);
+//   return data;
+// };
 
 // get top request product 
 export const getTopProducts = async () => {

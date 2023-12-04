@@ -71,7 +71,7 @@ const CustomRequest = () => {
                   onSubmit={handleSubmit(onSubmit)}
                   className=" w-full p-24 pt-12"
                 >
-                  <div className="grid grid-cols-2 gap-5">
+                  <div className="grid lg:grid-cols-2 gap-5">
                     <div className="form-control">
                       <label className="label"></label>
                       <input

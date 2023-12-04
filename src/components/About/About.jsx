@@ -4,15 +4,16 @@ const About = () => {
   return (
     <div className="bg-[#bde0fe]">
       <Container>
-        <div className="flex ">
-          <div className="w-1/2">
+        <div className="lg:flex ">
+          <div className="lg:w-1/2">
             <img
+            className="w-full h-full"
               src="https://i.postimg.cc/NM3BxFmT/kate-sade-2z-Zp12-Chxh-U-unsplash.jpg"
               alt=""
             />
           </div>
 
-          <div className="w-1/2 p-12 pr-0 ">
+          <div className="p-2 lg:w-1/2 md:p-12 pr-0 ">
             <h4 className="uppercase text-xl">innovative business</h4>
             <h2 className="text-5xl font-bold my-3">About Us</h2>
             <p className="text-xl pt-2">

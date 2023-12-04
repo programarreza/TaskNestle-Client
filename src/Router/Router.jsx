@@ -1,22 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import AddAsset from "../Pages/Admin/AddAsset/AddAsset";
+import AddEmployee from "../Pages/Admin/AddEmployee/AddEmployee";
+import AllRequests from "../Pages/Admin/AllRequests/AllRequests";
 import AssetList from "../Pages/Admin/AssetList/AssetList";
 import CustomRequestList from "../Pages/Admin/CustomRequestList/CustomRequestList";
 import MyEmployeeList from "../Pages/Admin/MyEmployeeList/MyEmployeeList";
+import Payment from "../Pages/Admin/Payment/Payment";
 import CustomRequest from "../Pages/Employee/CustomRequest/CustomRequest";
+import MyAssets from "../Pages/Employee/MyAssets/MyAssets";
+import MyTeam from "../Pages/Employee/MyTeam/MyTeam";
 import RequestAnAsset from "../Pages/Employee/RequestAnAsset/RequestAnAsset";
 import Home from "../Pages/Home/Home";
 import JoinAdmin from "../Pages/JoinAdmin/JoinAdmin";
 import JoinEmployee from "../Pages/JoinEmployee/JoinEmployee";
 import Login from "../Pages/Login/Login";
-import ProductUpdate from "../components/Admin/ProductUpdate/ProductUpdate";
-import AllRequests from "../Pages/Admin/AllRequests/AllRequests";
-import MyAssets from "../Pages/Employee/MyAssets/MyAssets";
-import MyTeam from "../Pages/Employee/MyTeam/MyTeam";
-import Payment from "../Pages/Admin/Payment/Payment";
-import AddEmployee from "../Pages/Admin/AddEmployee/AddEmployee";
 import Package from "../Pages/Package/Package";
+import ProductUpdate from "../components/Admin/ProductUpdate/ProductUpdate";
 import AdminRoute from "./AdminRoute";
 import EmployeeRoute from "./EmployeeRoute";
 
@@ -106,7 +106,7 @@ const router = createBrowserRouter([
         path: "/product-update/:id",
         element: <ProductUpdate />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/asset/${params.id}`),
+          fetch(`https://task-nestle-server.vercel.app/asset/${params.id}`),
       },
     ],
   },

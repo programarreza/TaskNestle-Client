@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 import DropDown from "./DropDown";
 import NavbarLinks from "./NavbarLinks";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(isOpen);
   
   return (
     <div>
       <div className="navbar bg-base-100 shadow-lg">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label onClick={() => setIsOpen(!isOpen)} tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -25,13 +28,13 @@ const Navbar = () => {
                 />
               </svg>
             </label>
-            <ul
+           {isOpen && <> <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu absolute flex h-auto  menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box  md:w-[600px] "
             >
               {/* all nav links */}
               <NavbarLinks />
-            </ul>
+            </ul></>}
           </div>
           <Link to="/" className="btn btn-ghost text-xl">
             <img className="w-20" src="https://i.postimg.cc/RFRx86f7/Layer-601321.png" alt="" />

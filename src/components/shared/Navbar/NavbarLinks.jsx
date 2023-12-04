@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import useUserRole from "../../../Hooks/useUserRole";
 
@@ -16,9 +16,9 @@ const NavbarLinks = () => {
       >
         Home
       </NavLink>
-      <Link to={"/payment"}>
+      {/* <Link to={"/payment"}>
         <button>payment</button>
-      </Link>
+      </Link> */}
 
       {!user || userRole === "user" && <p className="text-red-500 font-bold bg-[#c7bfbf] p-1">Please Contact Your HR  </p> }
 

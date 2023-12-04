@@ -1,16 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
-import { axiosSecure } from "../../Hooks/useAxiosSecure";
+
 
 import { getCustomAsset } from "../../api/auth";
 import Loading from "../Loading/Loading";
 import Modal from "../Modal/Modal";
 import Container from "../shared/Container/Container";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MyCustomRequest = () => {
   const { user, loading } = useAuth();
   const [asset, setAsset] = useState({});
+  const axiosSecure = useAxiosSecure()
 
   const { data: assets, refetch } = useQuery({
     enabled: !loading,

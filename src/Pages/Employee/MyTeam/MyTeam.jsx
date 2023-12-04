@@ -27,7 +27,7 @@ const MyTeam = () => {
             </p>
           </div>
           <div className="grid grid-cols-3 gap-4">
-            {employee.map((user) => (
+            {employee?.map((user) => (
               <>
                 <div className="card card-compact w-96 bg-base-100 shadow-xl">
                   <figure className="w-full h-80">

@@ -17,6 +17,8 @@ import MyTeam from "../Pages/Employee/MyTeam/MyTeam";
 import Payment from "../Pages/Admin/Payment/Payment";
 import AddEmployee from "../Pages/Admin/AddEmployee/AddEmployee";
 import Package from "../Pages/Package/Package";
+import AdminRoute from "./AdminRoute";
+import EmployeeRoute from "./EmployeeRoute";
 
 const router = createBrowserRouter([
   {
@@ -45,41 +47,42 @@ const router = createBrowserRouter([
       // logged in employee territory
       {
         path: "custom-request",
-        element: <CustomRequest />,
+        element: <EmployeeRoute><CustomRequest /></EmployeeRoute>,
       },
       {
         path: "request-asset",
-        element: <RequestAnAsset />,
+        element: <EmployeeRoute><RequestAnAsset /></EmployeeRoute>,
       },
       {
         path: "my-assets",
-        element: <MyAssets />,
+        element: <EmployeeRoute><MyAssets /></EmployeeRoute>,
       },
       {
         path: "my-team",
-        element: <MyTeam />,
+        element: <EmployeeRoute> <MyTeam /></EmployeeRoute>,
       },
+
 
       // admin territory
       {
         path: "add-asset",
-        element: <AddAsset />,
+        element: <AdminRoute><AddAsset /></AdminRoute>,
       },
       {
         path: "asset-list",
-        element: <AssetList />,
+        element: <AdminRoute><AssetList /></AdminRoute>,
       },
       {
         path: "custom-request-list",
-        element: <CustomRequestList />,
+        element: <AdminRoute><CustomRequestList /></AdminRoute>,
       },
       {
         path: "my-employee-list",
-        element: <MyEmployeeList />,
+        element: <AdminRoute><MyEmployeeList /></AdminRoute>,
       },
       {
         path: "all-request",
-        element: <AllRequests />,
+        element: <AdminRoute><AllRequests /></AdminRoute>,
       },
       {
         path: "payment",
@@ -88,7 +91,10 @@ const router = createBrowserRouter([
 
       {
         path: "add-employee",
-        element: <AddEmployee />,
+        element: 
+        <AdminRoute>
+          <AddEmployee />
+          </AdminRoute>,
       },
 
       {

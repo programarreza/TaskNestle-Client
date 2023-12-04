@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import Container from "../shared/Container/Container";
 
 const TopMostRequest = () => {
-  const { user, loading } = useAuth();
+  const { loading } = useAuth();
 
   const { data: topProducts, refetch } = useQuery({
     enabled: !loading,
@@ -56,7 +56,7 @@ const TopMostRequest = () => {
 
   return (
    <Container>
-	<div className="overflow-x-auto shadow-lg my-12 rounded-lg">
+	<div className="overflow-x-auto shadow-lg my-12 rounded-lg h-screen">
           <h2 className="text-4xl text-center uppercase font-semibold">
             Top Most Requested
           </h2>

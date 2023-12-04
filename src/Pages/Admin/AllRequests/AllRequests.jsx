@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
-import { axiosSecure } from "../../../Hooks/useAxiosSecure";
+
 import Loading from "../../../components/Loading/Loading";
 import Container from "../../../components/shared/Container/Container";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AllRequests = () => {
   const {user,  loading } = useAuth();
   const [searchValue, setSearchValue] = useState([]);
   const [assets, setAssets] = useState([]);
+  const axiosSecure = useAxiosSecure()
 
   useEffect(() => {
     axiosSecure(`/request-asset/${user?.email}?email=${searchValue}`)
@@ -20,7 +22,7 @@ const AllRequests = () => {
       .then((err) => {
         console.log(err);
       });
-  }, [searchValue, user?.email]);
+  }, [searchValue, user?.email, axiosSecure]);
 
 
   if (loading || !assets) {

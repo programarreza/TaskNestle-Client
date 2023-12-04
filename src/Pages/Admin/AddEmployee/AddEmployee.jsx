@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import { axiosSecure } from "../../../Hooks/useAxiosSecure";
 import useEmployee from "../../../Hooks/useEmployee";
 import Loading from "../../../components/Loading/Loading";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AddEmployee = () => {
   const { user } = useAuth();
   const [employee, loading] = useEmployee();
   const [normalUsers, setNormalUser] = useState("");
+  const axiosSecure = useAxiosSecure()
 
   useEffect(() => {
     axiosSecure
@@ -20,7 +21,7 @@ const AddEmployee = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [axiosSecure]);
 
   if (loading && !employee) {
     return <Loading />;

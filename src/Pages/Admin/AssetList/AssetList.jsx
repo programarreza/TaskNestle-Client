@@ -4,9 +4,10 @@ import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
-import { axiosSecure } from "../../../Hooks/useAxiosSecure";
+
 import Loading from "../../../components/Loading/Loading";
 import Container from "../../../components/shared/Container/Container";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AssetList = () => {
   const { user, loading } = useAuth();
@@ -14,12 +15,13 @@ const AssetList = () => {
   const [type, setType] = useState("");
   const [quantity, setQuantity] = useState("");
   const [assets, setAssets] = useState([]);
+  const axiosSecure = useAxiosSecure()
 
   const typeValue = ["Returnable", "Non-returnable"];
   console.log(quantity);
 
   useEffect(() => {
-    axiosSecure(`/assets/${user?.email}?name=${searchValue}&type=${type}&sortField=quantity&sortOrder=${quantity}`)
+    axiosSecure.get(`/assets/${user?.email}?name=${searchValue}&type=${type}&sortField=quantity&sortOrder=${quantity}`)
       .then((res) => {
         console.log(res.data);
         setAssets(res.data);
@@ -27,7 +29,7 @@ const AssetList = () => {
       .then((err) => {
         console.log(err);
       });
-  }, [searchValue, type, user?.email, quantity]);
+  }, [searchValue, type, user?.email, quantity, axiosSecure]);
 
   if (loading || !assets) {
     return <Loading />;

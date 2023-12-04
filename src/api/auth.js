@@ -36,6 +36,18 @@ export const getCustomAsset = async (email) => {
   return data;
 };
 
+// get custom request asset
+export const getTypeCount = async (email) => {
+  const { data } = await axiosSecure(`/product-type-count/${email}`)
+  return data;
+};
+
+// get limited stock
+export const getLimitedStock = async (email) => {
+  const { data } = await axiosSecure(`/limited-stock/${email}`);
+  return data;
+};
+
 
 // get packages
 export const getPackage = async () => {

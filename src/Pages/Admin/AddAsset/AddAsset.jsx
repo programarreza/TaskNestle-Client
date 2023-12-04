@@ -22,7 +22,7 @@ const AddAsset = () => {
     const assetInfo = {
       name: data.productName,
       type: data.productType,
-      quantity: data.productQuantity,
+      quantity: parseInt(data.productQuantity),
       email: user?.email,
       date: new Date(),
     };

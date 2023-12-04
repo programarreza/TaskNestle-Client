@@ -57,7 +57,7 @@ const PendingRequest = () => {
 
   return (
     <Container>
-      <div className="shadow-lg my-24 rounded-lg">
+      <div className="shadow-lg my-24 rounded-lg h-screen">
         <h2 className="text-4xl text-center uppercase font-semibold mt-12">
           Pending Request
         </h2>

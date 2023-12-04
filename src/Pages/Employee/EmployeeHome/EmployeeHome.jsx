@@ -1,3 +1,4 @@
+import FrequentlyRequest from "../../../components/Employee/FrequentlyRequest";
 import MyCustomRequest from "../../../components/Employee/MyCustomRequest";
 import MyPendingRequest from "../../../components/Employee/MyPendingRequest";
 
@@ -6,6 +7,7 @@ const EmployeeHome = () => {
     <div>
       <MyCustomRequest />
       <MyPendingRequest />
+      <FrequentlyRequest/>
     </div>
   );
 };

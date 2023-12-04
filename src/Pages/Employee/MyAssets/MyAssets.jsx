@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
-import { axiosSecure } from "../../../Hooks/useAxiosSecure";
+// import { axiosSecure } from "../../../Hooks/useAxiosSecure";
 import Loading from "../../../components/Loading/Loading";
 import Container from "../../../components/shared/Container/Container";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const MyAssets = () => {
   const { user, loading } = useAuth();
   const [searchValue, setSearchValue] = useState([]);
   const [type, setType] = useState("");
   const [assets, setAssets] = useState([]);
+  const axiosSecure = useAxiosSecure()
 
   const typeValue = ["Returnable", "Non-returnable"];
 
@@ -25,10 +27,10 @@ const MyAssets = () => {
       .then((err) => {
         console.log(err);
       });
-  }, [searchValue, type, user?.email]);
+  }, [searchValue, type, user?.email, axiosSecure]);
  
 
-  if (loading || !assets) {
+  if (loading && !assets) {
     return <Loading />;
   }
   // console.log(assets);
@@ -159,7 +161,6 @@ const MyAssets = () => {
                             <>
                               {asset?.status === "approved" && (
                                 <label
-                                  //   onClick={() => handleDelete(asset?._id)}
                                   htmlFor="my_modal_6"
                                   className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
                                 >

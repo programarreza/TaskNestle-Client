@@ -22,8 +22,9 @@ const ProductUpdate = () => {
     const assetInfo = {
       name: data.productName,
       type: data.productType,
-      quantity: data.productQuantity,
+      quantity: parseInt(data.productQuantity),
     };
+    
     console.log(assetInfo);
     axiosSecure
       .patch(`/product-update/${_id}`, assetInfo)
@@ -71,13 +72,27 @@ const ProductUpdate = () => {
                   <label className="label">
                     {/* <span className="label-text">Full Name</span> */}
                   </label>
-                  <input
-                    defaultValue={name}
-                    type="text"
+
+                  <select
+                  defaultValue={name}
+                    className="border py-3 rounded-md"
                     {...register("productName", { required: true })}
-                    placeholder="Product Name"
-                    className="input input-bordered"
-                  />
+                  >
+                    <option disabled selected required>
+                      Product Name
+                    </option>
+                    <option value="laptop">laptop</option>
+                    <option value="keyboard">keyboard</option>
+                    <option value="mouse">mouse</option>
+                    <option value="chair">chair</option>
+                    <option value="desk">desk</option>
+                    <option value="pens">pens</option>
+                    <option value="pencils">pencils</option>
+                    <option value="paper">paper</option>
+                    <option value="diaries">diaries</option>
+                    <option value=" tissue paper"> tissue paper</option>
+                  </select>
+
                   {errors.name && (
                     <span className="text-[#D1A054]">
                       Product Name is required
@@ -96,11 +111,8 @@ const ProductUpdate = () => {
                     <option disabled selected required>
                       Product Type
                     </option>
-                    <option value="laptop">laptop</option>
-                    <option value="keyboard">keyboard</option>
-                    <option value="chair">chair</option>
-                    <option value="desk">desk</option>
-                    <option value="phone">phone</option>
+                    <option value="Returnable">Returnable</option>
+                    <option value="Non-returnable">Non-returnable</option>
                   </select>
                 </div>
 

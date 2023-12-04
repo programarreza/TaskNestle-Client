@@ -3,9 +3,10 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import { axiosSecure } from "../../../Hooks/useAxiosSecure";
+// import { axiosSecure } from "../../../Hooks/useAxiosSecure";
 import useUserRole from "../../../Hooks/useUserRole";
 import Container from "../../../components/shared/Container/Container";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const RequestAnAsset = () => {
   const { user, loading } = useAuth();
@@ -14,7 +15,8 @@ const RequestAnAsset = () => {
   const [searchValue, setSearchValue] = useState([]);
   const [type, setType] = useState("");
   const navigate = useNavigate();
-  const [, users] = useUserRole()
+  const [, users] = useUserRole();
+  const axiosSecure = useAxiosSecure()
 
   const {
     register,
@@ -34,9 +36,9 @@ const RequestAnAsset = () => {
       .then((err) => {
         console.log(err);
       });
-    }, [searchValue, type]);
-    
-    // console.log(37, asset);
+  }, [searchValue, type, axiosSecure]);
+
+  // console.log(37, asset);
   const onSubmit = async (data) => {
     const assetInfo = {
       name: asset?.name,
@@ -55,7 +57,6 @@ const RequestAnAsset = () => {
       .post("/request-asset", assetInfo)
       .then((res) => {
         if (res.data.insertedId) {
-          reset();
           toast.success("Request Successfully");
           console.log(res.data);
           navigate("/request-asset");
@@ -64,8 +65,9 @@ const RequestAnAsset = () => {
       .catch((error) => {
         console.log(error);
       });
+    toast.success("Request Successfully");
+    reset()
   };
-
 
   return (
     <Container>
@@ -152,7 +154,7 @@ const RequestAnAsset = () => {
                                 htmlFor="my_modal_6"
                                 className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
                               >
-                                Request               
+                                Request
                               </label>
                             </>
                           )}
@@ -183,7 +185,7 @@ const RequestAnAsset = () => {
                     type="submit"
                     className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
                   >
-                    Request{" "}
+                    Request
                   </button>
                 </div>
               </form>
@@ -196,4 +198,4 @@ const RequestAnAsset = () => {
 };
 
 export default RequestAnAsset;
-                                                                                                                                                                                                                                                                                                        0
+0;

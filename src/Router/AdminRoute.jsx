@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 
 const AdminRoute = ({ children }) => {
   const { user, loading } = useAuth();
-  const [userRole] = useUserRole();
+  const [userRole, _, isRoleLoading] = useUserRole();
   console.log(userRole);
 
-  if (loading && userRole) {
+  if (loading || isRoleLoading) {
     return <Loading></Loading>;
   }
 
-  if (user && userRole === "admin") {
+  if (!loading && !isRoleLoading && user && userRole === "admin") {
     return children;
   }
 

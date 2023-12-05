@@ -6,18 +6,23 @@ import PropTypes from 'prop-types';
 
 const EmployeeRoute = ({children}) => {
 	const { user, loading } = useAuth();
-  const [userRole] = useUserRole();
+  const [userRole, _, isRoleLoading] = useUserRole();
   console.log(userRole);
+  console.log(isRoleLoading);
 
-  if (loading && userRole) {
+  if (loading || isRoleLoading) {
     return <Loading></Loading>;
   }
 
-  if (user && userRole === "employee") {
+
+  if (!loading && !isRoleLoading && user && userRole === "employee") {
     return children;
   }
+  else{
 
-  return <Navigate to={"/"} ></Navigate>;
+    return <Navigate to={"/"} ></Navigate>;
+  }
+
 };
 
 export default EmployeeRoute;

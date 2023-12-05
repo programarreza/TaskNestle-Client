@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
       
     });
     return () => {
-      return unSubscribe();
+       unSubscribe();
     };
   }, [axiosLocal]);
 

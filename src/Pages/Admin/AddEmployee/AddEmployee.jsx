@@ -23,6 +23,8 @@ const AddEmployee = () => {
       });
   }, [axiosSecure]);
 
+  console.log(normalUsers);
+
   if (loading && !employee) {
     return <Loading />;
   }
@@ -80,7 +82,7 @@ const AddEmployee = () => {
       </div>
 
       {/* all normal user */}
-      {normalUsers.length ? (
+      {normalUsers?.length ? (
         <div>
           <div className="overflow-x-auto">
             <table className="table text-center my-12 w-2/4 mx-auto shadow-md">

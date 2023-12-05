@@ -23,8 +23,8 @@ const AssetList = () => {
   useEffect(() => {
     axiosSecure.get(`/assets/${user?.email}?name=${searchValue}&type=${type}&sortField=quantity&sortOrder=${quantity}`)
       .then((res) => {
-        console.log(res.data);
-        setAssets(res.data);
+        console.log(res?.data);
+        setAssets(res?.data);
       })
       .then((err) => {
         console.log(err);
@@ -49,9 +49,10 @@ const AssetList = () => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/asset/${id}`).then((res) => {
           console.log(res.data);
-          if (res.data.deletedCount) {
+          if (res.data.deletedCount > 0) {
             console.log(id);
-            // refetch();
+            const remaining = assets.filter(asset => asset._id !== id)
+            setAssets(remaining)
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",

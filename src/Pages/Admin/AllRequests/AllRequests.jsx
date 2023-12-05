@@ -44,7 +44,8 @@ const AllRequests = () => {
         axiosSecure.delete(`/request-asset/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount) {
-            // refetch();
+            const remaining = assets.filter(asset => asset._id !== id)
+            setAssets(remaining)
             toast.success("Reject Done!");
           }
         });

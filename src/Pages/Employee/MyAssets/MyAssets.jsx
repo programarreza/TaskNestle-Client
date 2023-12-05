@@ -49,8 +49,10 @@ const MyAssets = () => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/request-asset/${id}`).then((res) => {
           console.log(res.data);
-          if (res.data.deletedCount) {
-            // refetch();
+          if (res.data.deletedCount > 0) {
+           
+            const remaining = assets.filter(asset => asset._id !== id)
+            setAssets(remaining)
             toast.success("Cancel Successfully");
           }
         });
@@ -63,7 +65,7 @@ const MyAssets = () => {
   };
   const handleReturn = (id) => {
     axiosSecure.patch(`/request-asset/${id}`, typeInfo);
-    refetch();
+    // refetch();
   };
 
   console.log(searchValue);

@@ -71,7 +71,7 @@ const RequestAnAsset = () => {
 
   return (
     <Container>
-      <div className="py-6 h-screen">
+      <div className="py-6 h-screen" data-aos="fade-bottom">
         {/* search & filter */}
         <div className="flex items-center justify-center gap-2 mb-6">
           <div>

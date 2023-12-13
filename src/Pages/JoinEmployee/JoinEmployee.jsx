@@ -66,14 +66,14 @@ const JoinEmployee = () => {
       <div className="w-full min-h-screen flex bg-cover bg-center">
         <div className="hero">
           <div className="hero-content flex flex-col md:flex-row  rounded-xl justify-between">
-            <div className="text-center lg:text-left w-1/2">
+            <div className="text-center hidden md:flex lg:text-left w-1/2" data-aos="fade-right">
               <img
                 className="w-full h-[60vh]"
                 src="https://i.postimg.cc/XYQMRGrg/33728241-removebg-preview.png"
                 alt=""
               />
             </div>
-            <div className="card w-1/1  flex-shrink-0 shadow-2xl ">
+            <div className="card w-1/1  flex-shrink-0 shadow-2xl"  data-aos="fade-left">
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="card-body w-[350px]"

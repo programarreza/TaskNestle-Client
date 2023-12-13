@@ -15,7 +15,7 @@ const MyTeam = () => {
     <Container>
       <div>
         {/* upcomming events */}
-        <div>
+        <div data-aos="zoom-in">
           <div className="max-w-2xl mx-auto py-16 space-y-4 ">
             <h2 className="text-4xl font-semibold text-center ">
               Upcoming events
@@ -49,7 +49,7 @@ const MyTeam = () => {
         </div>
 
         {/* team member list */}
-        <div>
+        <div data-aos="fade-top">
           {" "}
           <div className=" my-24 shadow-lg rounded-2xl mx-auto p-4">
             <div className="max-w-2xl mx-auto space-y-4 p-12">

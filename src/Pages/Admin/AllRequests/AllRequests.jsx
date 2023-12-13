@@ -64,7 +64,7 @@ const AllRequests = () => {
 
   return (
     <Container>
-      <div className="py-12 h-screen">
+      <div className="py-12 h-screen" data-aos="zoom-in">
       <div className="flex items-center justify-center gap-2 mb-6">
           <div>
             <input

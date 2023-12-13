@@ -42,8 +42,7 @@ const AddEmployee = () => {
         if (res.data) {
           toast.success("added Successfully");
           console.log(res.data);
-          // reset();
-          // navigate("/asset-list");
+          
         }
       })
       .catch((error) => {
@@ -52,9 +51,8 @@ const AddEmployee = () => {
       });
   };
 
-  // console.log(26, normalUsers, user);
   return (
-    <div>
+    <div data-aos="zoom-in">
       <div className="overflow-x-auto">
         <table className="table text-center my-12 w-2/4 mx-auto shadow-md">
           {/* head */}

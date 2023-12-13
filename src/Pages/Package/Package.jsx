@@ -2,16 +2,13 @@ import { Link } from "react-router-dom";
 import { axiosSecure } from "../../Hooks/useAxiosSecure";
 import usePackage from "../../Hooks/usePackage";
 import Container from "../../components/shared/Container/Container";
-// import { useState } from "react";
 import Loading from "../../components/Loading/Loading";
 import useAuth from "../../Hooks/useAuth";
 
 const Package = () => {
   const { loading } = useAuth();
   const [packages] = usePackage();
-//   const [singlePackage, setSinglePackage] = useState(null);
-
-//   localStorage.setItem('data',singlePackage);
+ 
 
   if (loading) {
     return <Loading />;
@@ -22,20 +19,17 @@ const Package = () => {
     await axiosSecure(`/singePackage/${id}`)
       .then((res) => {
         console.log(res.data);
-        // setSinglePackage(res?.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  //   console.log(24, singlePackage);
-
   return (
     <Container>
-      <div className="h-screen">
+      <div className="min-h-screen "  data-aos="fade-left">
         <h2 className="text-4xl font-bold text-center py-12">Our Package </h2>
-        <div className="grid grid-cols-3 gap-12 ">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:gap-12 ">
           {packages?.map((item) => (
             <>
               <div className="card card-compact bg-base-100 shadow-xl ">

@@ -72,7 +72,7 @@ const MyAssets = () => {
   console.log(type);
   return (
     <Container>
-      <div className="py-12 h-screen">
+      <div className="py-12 h-screen" data-aos="fade-top">
         {/* search & filter */}
         <div className="flex items-center justify-center gap-2 mb-6">
           <div>

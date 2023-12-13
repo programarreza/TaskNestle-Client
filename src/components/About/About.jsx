@@ -1,10 +1,11 @@
 import Container from "../shared/Container/Container";
 
 const About = () => {
+  
   return (
-    <div className="">
+    <div className="mb-12 ">
       <Container>
-        <div className="lg:flex shadow-lg border-t-2 rounded-xl">
+        <div className="lg:flex shadow-lg border-t-2 rounded-xl" >
           <div className="lg:w-1/2">
             <img
             className="w-full h-full"
@@ -13,8 +14,8 @@ const About = () => {
             />
           </div>
 
-          <div className="p-2 lg:w-1/2 md:p-12 pr-0 ">
-            <h4 className="uppercase text-xl">innovative business</h4>
+          <div className="p-2 lg:w-1/2 md:p-12 pr-0 "  data-aos="fade-right">
+            <h4 className="uppercase text-xl">innovative business </h4>
             <h2 className="text-5xl font-bold my-3">About Us</h2>
             <p className="text-xl pt-2">
               Effortlessly manage tasks, streamline collaboration, and boost

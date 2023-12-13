@@ -53,7 +53,7 @@ const CustomRequestList = () => {
 
   return (
     <Container>
-      <div className="py-12 h-screen">
+      <div className="py-12 h-screen" data-aos="zoom-in">
         <h2 className="text-4xl text-center uppercase font-semibold">
           Custom Request List
         </h2>

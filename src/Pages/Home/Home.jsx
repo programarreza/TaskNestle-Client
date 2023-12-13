@@ -12,7 +12,6 @@ const Home = () => {
     <div>
       {/* without login */}
       <Banner />
-      {/* <Packages /> */}
       <Package/>
       <About />
 

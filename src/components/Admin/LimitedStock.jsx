@@ -52,7 +52,7 @@ const LimitedStock = () => {
 
   return (
     <Container>
-      <div className="my-24 shadow-lg rounded-lg h-screen">
+      <div className="my-24 shadow-lg rounded-lg h-screen" data-aos="fade-left">
         <h2 className="text-4xl text-center uppercase font-semibold ">
           Limited Stock items
         </h2>

@@ -56,7 +56,7 @@ const TopMostRequest = () => {
 
   return (
    <Container>
-	<div className="overflow-x-auto shadow-lg my-12 rounded-lg h-screen">
+	<div className="overflow-x-auto shadow-lg my-12 rounded-lg h-screen" data-aos="fade-right">
           <h2 className="text-4xl text-center uppercase font-semibold">
             Top Most Requested
           </h2>

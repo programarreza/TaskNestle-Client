@@ -67,7 +67,7 @@ const Chart = () => {
 
   return (
     <Container>
-      <div className="h-screen shadow-lg rounded-lg border-t-2 flex ">
+      <div className="h-screen shadow-lg rounded-lg border-t-2 flex " data-aos="zoom-in">
       
         <div className="flex items-center">
           <div className="md:w-1/2">

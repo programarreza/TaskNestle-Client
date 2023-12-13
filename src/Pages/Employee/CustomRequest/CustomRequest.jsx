@@ -60,7 +60,7 @@ const CustomRequest = () => {
           <title>Make a Custom Request </title>
         </Helmet>
 
-        <div className="w-full bg-cover bg-center">
+        <div className="w-full bg-cover bg-center" data-aos="zoom-in">
           <div className="">
             <div className=" flex flex-row  rounded-xl justify-between">
               <div className=" w-full  flex-shrink-0 shadow-2xl ">

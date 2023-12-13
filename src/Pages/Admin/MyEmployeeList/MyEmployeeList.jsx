@@ -42,7 +42,7 @@ const MyEmployeeList = () => {
 
   return (
     <Container>
-      <div>
+      <div data-aos="zoom-in">
         <div className="max-w-2xl mx-auto py-12 space-y-4">
           <h2 className="text-4xl font-semibold text-center ">
             My Employee List

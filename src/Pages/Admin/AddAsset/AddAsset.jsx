@@ -4,8 +4,6 @@ import toast from "react-hot-toast";
 import useAuth from "../../../Hooks/useAuth";
 import { axiosSecure } from "../../../Hooks/useAxiosSecure";
 
-
-
 const AddAsset = () => {
   const { user } = useAuth();
 
@@ -34,7 +32,7 @@ const AddAsset = () => {
           reset();
           toast.success("Product Added Successfully");
           console.log(res.data);
-          //   navigate("/");
+          
         }
       })
       .catch((error) => {
@@ -52,7 +50,7 @@ const AddAsset = () => {
       <div className="w-full min-h-screen flex bg-cover bg-center">
         <div className="hero">
           <div className="hero-content flex flex-col md:flex-row  rounded-xl justify-between ">
-            <div className="text-center lg:text-left md:w-1/2">
+            <div className="text-center lg:text-left md:w-1/2" data-aos="fade-right">
               <img
                 className="w-full "
                 src="https://i.postimg.cc/zDSrLmTC/Data-Infographic-600x600-1.webp"
@@ -60,7 +58,7 @@ const AddAsset = () => {
               />
             </div>
 
-            <div className="card md:w-1/1  flex-shrink-0 shadow-2xl ">
+            <div className="card md:w-1/1  flex-shrink-0 shadow-2xl " data-aos="fade-left">
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="card-body w-[350px]"

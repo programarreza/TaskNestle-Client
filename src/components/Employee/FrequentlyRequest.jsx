@@ -55,12 +55,9 @@ const FrequentlyRequest = () => {
     refetch();
   };
 
-
-
-
   return (
     <Container>
-      <div className="overflow-x-auto shadow-lg my-12 rounded-lg h-screen">
+      <div className="overflow-x-auto shadow-lg my-12 rounded-lg h-screen" data-aos="fade-bottom">
         <h2 className="text-4xl text-center uppercase font-semibold">
 		Frequently requested 
         </h2>

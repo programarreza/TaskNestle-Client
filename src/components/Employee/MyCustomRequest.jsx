@@ -39,7 +39,7 @@ const MyCustomRequest = () => {
   if (assets.length > 0) {
     return (
       <Container>
-        <div className="py-12 h-screen shadow-xl rounded-lg my-12 ">
+        <div className="py-12 h-screen shadow-xl rounded-lg my-12 " data-aos="fade-left">
           <h2 className="text-4xl text-center uppercase font-semibold">
             My custom request{" "}
           </h2>

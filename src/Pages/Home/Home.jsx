@@ -1,9 +1,9 @@
 import useUserRole from "../../Hooks/useUserRole";
 import About from "../../components/About/About";
 import Banner from "../../components/Header/Banner/Bannar";
-import Packages from "../../components/Packages/Packages";
 import AdminHome from "../Admin/AdminHome/AdminHome";
 import EmployeeHome from "../Employee/EmployeeHome/EmployeeHome";
+import Package from "../Package/Package";
 
 const Home = () => {
   const [userRole] = useUserRole()
@@ -12,7 +12,8 @@ const Home = () => {
     <div>
       {/* without login */}
       <Banner />
-      <Packages />
+      {/* <Packages /> */}
+      <Package/>
       <About />
 
       {/* employee section */}

@@ -33,7 +33,7 @@ const Package = () => {
 
   return (
     <Container>
-      <div>
+      <div className="h-screen">
         <h2 className="text-4xl font-bold text-center py-12">Our Package </h2>
         <div className="grid grid-cols-3 gap-12 ">
           {packages?.map((item) => (
@@ -43,7 +43,7 @@ const Package = () => {
                   <h2 className="card-title text-center mx-auto text-2xl border-b-2 pb-4">
                     {item?.title}
                   </h2>
-                  <div className="text-xl space-y-4 font-medium  text-[#383838cc]">
+                  <div className="text-xl space-y-4 font-medium ">
                     <p>{item?.description1}</p>
                     <p>{item?.description2}</p>
                     <p>{item?.description3}</p>

@@ -2,9 +2,9 @@ import Container from "../shared/Container/Container";
 
 const About = () => {
   return (
-    <div className="bg-[#bde0fe]">
+    <div className="">
       <Container>
-        <div className="lg:flex ">
+        <div className="lg:flex shadow-lg border-t-2 rounded-xl">
           <div className="lg:w-1/2">
             <img
             className="w-full h-full"

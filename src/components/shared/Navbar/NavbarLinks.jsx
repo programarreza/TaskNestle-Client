@@ -11,7 +11,7 @@ const NavbarLinks = () => {
       <NavLink
         to="/"
         className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""
+          isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
         }
       >
         Home
@@ -27,7 +27,7 @@ const NavbarLinks = () => {
       <NavLink
             to="join-employee"
             className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
+              isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
             }
           >
             Join as Employee
@@ -35,7 +35,7 @@ const NavbarLinks = () => {
           <NavLink
             to="join-admin"
             className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
+              isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
             }
           >
             Join as Admin
@@ -43,7 +43,7 @@ const NavbarLinks = () => {
           <NavLink
             to="login"
             className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
+              isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
             }
           >
             Login
@@ -56,7 +56,7 @@ const NavbarLinks = () => {
           <NavLink
             to="my-assets"
             className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
+              isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
             }
           >
             My Assets
@@ -64,7 +64,7 @@ const NavbarLinks = () => {
           <NavLink
             to="my-team"
             className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
+              isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
             }
           >
             My Team
@@ -72,7 +72,7 @@ const NavbarLinks = () => {
           <NavLink
             to="request-asset"
             className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
+              isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
             }
           >
             Request for an Asset
@@ -80,7 +80,7 @@ const NavbarLinks = () => {
           <NavLink
             to="custom-request"
             className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
+              isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
             }
           >
             Make a Custom Request
@@ -92,7 +92,7 @@ const NavbarLinks = () => {
       {(user && userRole === "admin") && <><NavLink
         to="asset-list"
         className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""
+          isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
         }
       >
         Asset List
@@ -100,7 +100,7 @@ const NavbarLinks = () => {
       <NavLink
         to="add-asset"
         className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""
+          isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
         }
       >
         Add An Asset
@@ -108,7 +108,7 @@ const NavbarLinks = () => {
       <NavLink
         to="all-request"
         className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""
+          isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
         }
       >
         All Request
@@ -116,7 +116,7 @@ const NavbarLinks = () => {
       <NavLink
         to="custom-request-list"
         className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""
+          isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
         }
       >
         Custom Request List
@@ -124,7 +124,7 @@ const NavbarLinks = () => {
       <NavLink
         to="my-employee-list"
         className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""
+          isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
         }
       >
         My Employee List
@@ -132,7 +132,7 @@ const NavbarLinks = () => {
       <NavLink
         to="add-employee"
         className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "active" : ""
+          isPending ? "pending" : isActive ? "text-[#D1A054] underline" : ""
         }
       >
         Add An Employee

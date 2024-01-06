@@ -16,7 +16,7 @@ const Slider = ({ heading, subHeading, label, path, image }) => {
               <p>{subHeading}</p>
               <div>
                 <Link to={path}>
-                  <button className="btn btn-outline btn-secondary">
+                  <button className="btn border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white">
                     {label}
                   </button>
                 </Link>

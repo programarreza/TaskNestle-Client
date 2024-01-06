@@ -66,14 +66,20 @@ const JoinEmployee = () => {
       <div className="w-full min-h-screen flex bg-cover bg-center">
         <div className="hero">
           <div className="hero-content flex flex-col md:flex-row  rounded-xl justify-between">
-            <div className="text-center hidden md:flex lg:text-left w-1/2" data-aos="fade-right">
+            <div
+              className="text-center hidden md:flex lg:text-left w-1/2"
+              data-aos="fade-right"
+            >
               <img
                 className="w-full h-[60vh]"
                 src="https://i.postimg.cc/XYQMRGrg/33728241-removebg-preview.png"
                 alt=""
               />
             </div>
-            <div className="card w-1/1  flex-shrink-0 shadow-2xl"  data-aos="fade-left">
+            <div
+              className="card w-1/1  flex-shrink-0 shadow-2xl"
+              data-aos="fade-left"
+            >
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="card-body w-[350px]"
@@ -174,7 +180,6 @@ const JoinEmployee = () => {
                     required
                     type="file"
                     id="image"
-                    
                     accept="image/*"
                   />
                   {errors.image && (
@@ -187,16 +192,11 @@ const JoinEmployee = () => {
                 <div className="form-control mt-2">
                   <button
                     type="submit"
-                    className="btn  bg-[#D1A054B3] hover:bg-[#d19f54fb] text-white "
+                    className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                   >
                     Sign Up
                   </button>
-                  {/* <p className="text-[#D1A054] text-center mt-2">
-                    Already registered?{" "}
-                    <Link to={"/login"}>
-                      <span className="font-semibold">Go to log in</span>
-                    </Link>
-                  </p> */}
+
                   <div className="divider">or</div>
                 </div>
                 <div>

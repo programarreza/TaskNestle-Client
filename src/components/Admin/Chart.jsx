@@ -3,19 +3,12 @@ import Container from "../shared/Container/Container";
 import { getTypeCount } from "../../api/auth";
 import useAuth from "../../Hooks/useAuth";
 import Loading from "../Loading/Loading";
-import {
-  PieChart,
-  Pie,
-  Sector,
-  Cell,
-  ResponsiveContainer,
-  Legend,
-} from "recharts";
+import { PieChart, Pie, Cell, Legend } from "recharts";
 
 const Chart = () => {
   const { user, loading } = useAuth();
 
-  const { data: typeCount, refetch } = useQuery({
+  const { data: typeCount } = useQuery({
     enabled: !loading,
     queryFn: async () => await getTypeCount(user?.email),
     queryKey: ["type-count"],
@@ -25,18 +18,12 @@ const Chart = () => {
     return <Loading />;
   }
 
-  console.log(typeCount);
-  console.log(typeCount.nonReturnable)
-  console.log(typeCount.returnableCount)
-
-  
-
   const data = [
-    { name: "Returnable", value: typeCount.nonReturnable},
-    { name: "Non Returnable", value: typeCount.returnableCount},
+    { name: "Returnable", value: typeCount.nonReturnable },
+    { name: "Non Returnable", value: typeCount.returnableCount },
   ];
 
-  const COLORS = [ "#4579cc", "#D1A054",];
+  const COLORS = ["#4579cc", "#D1A054"];
 
   // custom shape for the pie chart
   const RADIAN = Math.PI / 180;
@@ -67,8 +54,10 @@ const Chart = () => {
 
   return (
     <Container>
-      <div className="h-screen shadow-lg rounded-lg border-t-2 flex " data-aos="zoom-in">
-      
+      <div
+        className="h-screen shadow-lg rounded-lg border-t-2 flex "
+        data-aos="zoom-in"
+      >
         <div className="flex items-center">
           <div className="md:w-1/2">
             <PieChart width={400} height={400}>
@@ -89,7 +78,7 @@ const Chart = () => {
                   />
                 ))}
               </Pie>
-			  <Legend></Legend>
+              <Legend></Legend>
             </PieChart>
           </div>
           <div className="w-1/2"></div>

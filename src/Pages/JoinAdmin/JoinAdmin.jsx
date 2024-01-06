@@ -214,7 +214,7 @@ const JoinAdmin = () => {
                 <div className="form-control mt-2">
                   <button
                     type="submit"
-                    className="btn  bg-[#D1A054B3] hover:bg-[#d19f54fb] text-white "
+                    className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                   >
                     Sign Up
                   </button>

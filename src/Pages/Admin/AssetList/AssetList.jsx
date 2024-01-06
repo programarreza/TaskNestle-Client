@@ -63,7 +63,6 @@ const AssetList = () => {
     });
   };
 
-  console.log(24, assets);
 
   return (
     <Container>
@@ -147,7 +146,7 @@ const AssetList = () => {
                       <Link to={`/product-update/${asset?._id}`}>
                         <label
                           htmlFor="my_modal_6"
-                          className="btn btn-sm rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                          className="btn btn-sm rounded-md border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                         >
                           <FiEdit size={22} />
                         </label>
@@ -157,7 +156,7 @@ const AssetList = () => {
                       <label
                         onClick={() => handleDelete(asset?._id)}
                         htmlFor="my_modal_6"
-                        className="btn btn-sm rounded-md  bg-[#d15454] hover:bg-[#eba43b] text-white"
+                        className="btn btn-sm rounded-md border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                       >
                         <AiFillDelete size={22} />
                       </label>

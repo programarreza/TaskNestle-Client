@@ -31,9 +31,9 @@ const SocialLogin = () => {
   };
 
   return (
-    <div onClick={handleGoogleSignIn} className="btn btn-outline btn-info hover:bg-[#7db5ff] p-2 flex items-center gap-4 justify-center cursor-pointer rounded-md">
+    <div onClick={handleGoogleSignIn} className="btn opacity-80 hover:opacity-100 bg-white hover:bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white p-2 flex items-center gap-4 justify-center cursor-pointer rounded-md">
       <FcGoogle className="text-4xl" />
-      <span className="text-black hover:text-white text-xl font-semibold">
+      <span className="text-black text-xl font-semibold hover:text-white py-1">
         Continue With Google
       </span>
     </div>

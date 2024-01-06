@@ -103,7 +103,7 @@ const CustomRequestList = () => {
                         <label
                           onClick={() => handleApprove(asset?._id)}
                           htmlFor="my_modal_6"
-                          className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                          className="btn btn-sm rounded-md border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                         >
                           Approve
                         </label>
@@ -115,7 +115,7 @@ const CustomRequestList = () => {
                       <label
                         onClick={() => handleDelete(asset?._id)}
                         htmlFor="my_modal_6"
-                        className="btn btn-sm rounded-md  bg-[#d15454] hover:bg-[#eba43b] text-white"
+                        className="btn btn-sm rounded-md border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                       >
                         Reject
                       </label>

@@ -74,7 +74,7 @@ const Modal = ({ asset }) => {
                       <th>
                         <button
                           onClick={() => setIsOpen(!isOpen)}
-                          className="btn"
+                          className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                         >
                           update
                         </button>
@@ -83,8 +83,8 @@ const Modal = ({ asset }) => {
                   </tbody>
                 </table>
               </div>
-              <div className="modal-action">
-                <label htmlFor="my_modal_6" className="btn">
+              <div className="modal-action ">
+                <label htmlFor="my_modal_6" className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white">
                   Close!
                 </label>
               </div>

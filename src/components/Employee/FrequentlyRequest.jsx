@@ -72,7 +72,6 @@ const FrequentlyRequest = () => {
               <th>Date</th>
               <th>Additional note</th>
               <th>Status</th>
-              {/* <th>Action</th> */}
               <th>Action</th>
             </tr>
           </thead>
@@ -110,7 +109,7 @@ const FrequentlyRequest = () => {
                             <label
                               onClick={() => handleDelete(topProduct?._id)}
                              
-                              className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                              className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                             >
                               Cancel
                             </label>
@@ -120,7 +119,7 @@ const FrequentlyRequest = () => {
                             <label
                               onClick={() => handleReturn(topProduct?._id)}
                              
-                              className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                              className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                             >
                               Return
                             </label>
@@ -129,7 +128,7 @@ const FrequentlyRequest = () => {
                               {topProduct?.status === "approved" && (
                                 <label
                                  
-                                  className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                                  className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                                 >
                                   Print
                                 </label>
@@ -139,7 +138,7 @@ const FrequentlyRequest = () => {
 
                           {topProduct?.status === "returned" && (
                             <div className="my-3">
-                              <label className="p-3.5 rounded-md  bg-[#d19f5459]  text-white">
+                              <label className=" opacity-50 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6]  p-3.5 rounded-md  bg-[#d19f5459]  text-white">
                                 Return
                               </label>
                             </div>

@@ -160,13 +160,13 @@ const CustomAssetUpdate = ({ asset, setIsOpen, isOpen }) => {
                 <div className="form-control mt-12 w-fit mx-auto block">
                   <button
                     type="submit"
-                    className="btn mr-12  bg-[#D1A054B3] hover:bg-[#d19f54fb] text-white "
+                    className="btn mr-12 opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                   >
                     Save
                   </button>
                   <div
                     onClick={() => setIsOpen(!isOpen)}
-                    className="btn  bg-[#D1A054B3] hover:bg-[#d19f54fb] text-white "
+                    className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white "
                   >
                     Cancel
                   </div>

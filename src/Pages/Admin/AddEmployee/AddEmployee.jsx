@@ -69,7 +69,7 @@ const AddEmployee = () => {
               <td>Coming soon</td>
               <td>
                 <Link to={"/package"}>
-                  <button className="btn btn-sm rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white">
+                  <button className="btn btn-sm rounded-md border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white">
                     increase limit
                   </button>
                 </Link>
@@ -110,7 +110,7 @@ const AddEmployee = () => {
                     <td>
                       <button
                         onClick={() => handleAddTeam(normalUser?._id)}
-                        className="btn btn-sm rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                        className="btn btn-sm rounded-md border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                       >
                         Add to the team
                       </button>

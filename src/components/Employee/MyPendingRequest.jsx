@@ -79,7 +79,7 @@ const MyPendingRequest = () => {
                       <th>
                         <label
                           onClick={() => handleDelete(asset?._id)}
-                          className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                          className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                         >
                           Cancel
                         </label>

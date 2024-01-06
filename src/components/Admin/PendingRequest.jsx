@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 
@@ -96,7 +97,7 @@ const PendingRequest = () => {
                         <td>{product?.type}</td>
                         <td>{product?.email}</td>
                         <th>{product?.userName}</th>
-                        <th>{product?.date}</th>
+                        <th>{moment(product?.date).format("DD-MM-YYYY")}</th>
                         <th>{product?.additionalNotes}</th>
                         <th>{product?.status}</th>
                         <th>

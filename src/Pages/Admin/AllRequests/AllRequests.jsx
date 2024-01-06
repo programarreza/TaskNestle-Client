@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
@@ -109,7 +110,7 @@ const AllRequests = () => {
                     <td>{asset?.type}</td>
                     <td>{asset?.email}</td>
                     <th>{asset?.userName}</th>
-                    <th>{asset?.date}</th>
+                    <th>{moment(asset?.date).format("DD-MM-YYYY")}</th>
                     <th>{asset?.additionalNotes}</th>
                     <th>{asset?.status}</th>
                     <th>

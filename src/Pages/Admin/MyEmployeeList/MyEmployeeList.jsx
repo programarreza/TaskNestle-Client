@@ -63,7 +63,7 @@ const MyEmployeeList = () => {
                   </div>
                 </div>
                 <div className="card-body shadow-sm">
-                  <h2 className="card-title">{user?.name}</h2>
+                  <h2 className="card-title text-center flex justify-center">{user?.name}</h2>
 
                   <button
                     onClick={() => handleDelete(user?._id)}

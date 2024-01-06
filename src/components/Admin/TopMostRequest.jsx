@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import { getTopProducts } from "../../api/auth";
@@ -88,7 +89,7 @@ const TopMostRequest = () => {
                       <td>{topProduct?.type}</td>
                       <td>{topProduct?.email}</td>
                       <th>{topProduct?.userName}</th>
-                      <th>{topProduct?.date}</th>
+                      <th>{moment(topProduct?.date).format("DD-MM-YYYY")}</th>
                       <th>{topProduct?.additionalNotes}</th>
                       <th>{topProduct?.status}</th>
                       <th>

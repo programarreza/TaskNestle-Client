@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet";
-import useAxiosLocal from "../../../Hooks/useAxiosLocal";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import Container from "../../../components/shared/Container/Container";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
+import useAxiosLocal from "../../../Hooks/useAxiosLocal";
 import { imageUpload } from "../../../api/Utils/Utils";
+import Container from "../../../components/shared/Container/Container";
 
 const CustomRequest = () => {
   const axiosLocal = useAxiosLocal();
@@ -78,7 +78,7 @@ const CustomRequest = () => {
                         type="text"
                         {...register("assetName", { required: true })}
                         placeholder="Asset Name"
-                        className="input input-bordered"
+                        className="input border-0.5 border-gray-500 focus:outline-[#d19f54fb] "
                       />
                       {errors.name && (
                         <span className="text-[#D1A054]">
@@ -93,7 +93,7 @@ const CustomRequest = () => {
                         type="text"
                         {...register("price", { required: true })}
                         placeholder="$ Price"
-                        className="input input-bordered"
+                        className="input border-0.5 border-gray-500 focus:outline-[#d19f54fb] "
                       />
                       {errors.email && (
                         <span className="text-[#D1A054]">
@@ -106,7 +106,7 @@ const CustomRequest = () => {
                       <label className="label"></label>
 
                       <select
-                        className="border py-3 rounded-md"
+                        className="border py-3 input border-0.5 border-gray-500 focus:outline-[#d19f54fb] "
                         {...register("assetType", { required: true })}
                       >
                         <option disabled selected required>
@@ -121,16 +121,15 @@ const CustomRequest = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="image" className="block mb-2 text-sm">
-                        Select Asset Image:
-                      </label>
+                      <label htmlFor="image" className="block mb-2 text-sm"></label>
                       <input
                         {...register("image", { required: true })}
                         required
                         type="file"
                         id="image"
                         accept="image/*"
-                        className="border w-full rounded-lg"
+                        placeholder="dfd"
+                        className="input border-0.5 border-gray-500 focus:outline-[#d19f54fb]  w-full rounded-lg py-2 mt-2"
                       />
                       {errors.image && (
                         <span className="text-[#D1A054]">
@@ -145,7 +144,7 @@ const CustomRequest = () => {
                         type="text"
                         {...register("assetInfo", { required: true })}
                         placeholder="Why You Need This"
-                        className="input input-bordered"
+                        className="input border-0.5 border-gray-500 focus:outline-[#d19f54fb] "
                       />
                       {errors.email && (
                         <span className="text-[#D1A054]">
@@ -160,7 +159,7 @@ const CustomRequest = () => {
                         type="text"
                         {...register("additionalInfo", { required: true })}
                         placeholder="Additional Information"
-                        className="input input-bordered"
+                        className="input border-0.5 border-gray-500 focus:outline-[#d19f54fb] "
                       />
                       {errors.email && (
                         <span className="text-[#D1A054]">
@@ -173,7 +172,7 @@ const CustomRequest = () => {
                   <div className="form-control mt-12 w-fit mx-auto">
                     <button
                       type="submit"
-                      className="btn  bg-[#D1A054B3] hover:bg-[#d19f54fb] text-white "
+                      className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                     >
                       Request Now
                     </button>

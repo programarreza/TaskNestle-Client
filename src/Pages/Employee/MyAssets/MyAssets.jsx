@@ -1,8 +1,8 @@
+import moment from 'moment';
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
-// import { axiosSecure } from "../../../Hooks/useAxiosSecure";
 import Loading from "../../../components/Loading/Loading";
 import Container from "../../../components/shared/Container/Container";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
@@ -137,8 +137,8 @@ const MyAssets = () => {
                           </div>
                         </td>
                         <td>{asset?.type}</td>
-                        <td>{asset?.date}</td>
-                        <th>{asset?.approvedDate}</th>
+                        <td>{moment(asset?.date).format("DD-MM-YYYY")}</td>
+                        <td>{moment(asset?.approvedDate).format("DD-MM-YYYY")}</td>
                         <th>{asset?.status}</th>
                         <th>
                           {asset?.status === "pending" && (

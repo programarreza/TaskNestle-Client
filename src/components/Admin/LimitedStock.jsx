@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import Container from "../shared/Container/Container";
@@ -81,7 +82,7 @@ const LimitedStock = () => {
                   </td>
                   <td>{asset?.type}</td>
                   <td>{asset?.quantity}</td>
-                  <th>{asset?.date}</th>
+                  <th>{moment(asset?.date).format("DD-MM-YYYY")}</th>
                   <th>
                     <Link to={`/product-update/${asset?._id}`}>
                       <label

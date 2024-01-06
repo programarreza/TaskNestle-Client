@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
 import { getPendingAssets } from "../../api/auth";
@@ -74,7 +75,7 @@ const MyPendingRequest = () => {
                         </div>
                       </td>
                       <td>{asset?.type}</td>
-                      <td>{asset?.date}</td>
+                      <td>{moment(asset?.date).format("DD-MM-YYYY")}</td>
                       <th>{asset?.status}</th>
                       <th>
                         <label
@@ -90,8 +91,7 @@ const MyPendingRequest = () => {
               </table>
             </div>
           </div>
-          {/* Modal */}
-          {/* <Modal modalId={"my_modal_6"} asset={asset} /> */}
+          
         </div>
       </Container>
     );

@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useEffect, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
@@ -141,7 +142,7 @@ const AssetList = () => {
                     </td>
                     <td>{asset?.type}</td>
                     <td>{asset?.quantity}</td>
-                    <th>{asset?.date}</th>
+                    <th>{moment(asset?.date).format("DD-MM-YYYY")}</th>
                     <th>
                       <Link to={`/product-update/${asset?._id}`}>
                         <label

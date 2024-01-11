@@ -6,7 +6,6 @@ import Theme from "./theme";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
 
   return (
     <div>

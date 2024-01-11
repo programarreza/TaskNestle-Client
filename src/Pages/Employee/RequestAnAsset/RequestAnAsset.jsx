@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-// import { axiosSecure } from "../../../Hooks/useAxiosSecure";
 import useUserRole from "../../../Hooks/useUserRole";
 import Container from "../../../components/shared/Container/Container";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const RequestAnAsset = () => {
   const { user, loading } = useAuth();
@@ -38,7 +38,7 @@ const RequestAnAsset = () => {
       });
   }, [searchValue, type, axiosSecure]);
 
-  // console.log(37, asset);
+
   const onSubmit = async (data) => {
     const assetInfo = {
       name: asset?.name,
@@ -51,7 +51,7 @@ const RequestAnAsset = () => {
       status: "pending",
       requestCount: 1,
     };
-    // console.log(assetInfo);
+
 
     axiosSecure
       .post("/request-asset", assetInfo)
@@ -71,7 +71,7 @@ const RequestAnAsset = () => {
 
   return (
     <Container>
-      <div className="py-6 h-screen" data-aos="fade-bottom">
+      <div className="py-6 ">
         {/* search & filter */}
         <div className="flex items-center justify-center gap-2 mb-6">
           <div>
@@ -152,7 +152,7 @@ const RequestAnAsset = () => {
                               <label
                                 onClick={() => setAsset(asset)}
                                 htmlFor="my_modal_6"
-                                className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                                className="btn rounded-md border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                               >
                                 Request
                               </label>
@@ -168,10 +168,14 @@ const RequestAnAsset = () => {
           </div>
         </div>
         {/* Modal */}
-        <div>
+        <div className="">
           <input type="checkbox" id="my_modal_6" className="modal-toggle" />
           <div className="modal" role="dialog">
             <div className="modal-box relative p-12">
+            <label htmlFor="my_modal_6" className="absolute top-0 right-0 p-4 cursor-pointer ">
+              <span className="text-xl "><AiOutlineCloseCircle size={30}/></span>
+            </label>
+
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                   {...register("additionalNotes", { required: true })}
@@ -183,7 +187,7 @@ const RequestAnAsset = () => {
                 <div className="mt-5 mx-auto flex justify-center">
                   <button
                     type="submit"
-                    className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                    className="btn rounded-md border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                   >
                     Request
                   </button>

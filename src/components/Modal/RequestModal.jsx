@@ -1,7 +1,7 @@
 const RequestModal = () => {
-//   console.log(asset);
+
   return (
-    <>
+    <div className="h-screen">
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box relative p-12">
@@ -18,7 +18,7 @@ const RequestModal = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

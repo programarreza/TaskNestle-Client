@@ -129,7 +129,7 @@ const FrequentlyRequest = () => {
                               {topProduct?.status === "approved" && (
                                 <label
                                  
-                                  className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
+                                  className="btn opacity-80 hover:opacity-100 bg-white bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white px-6"
                                 >
                                   Print
                                 </label>

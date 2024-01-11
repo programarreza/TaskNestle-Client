@@ -102,22 +102,19 @@ const CustomRequest = () => {
                       )}
                     </div>
 
-                    <div className="form-control">
+                     <div className="form-control">
                       <label className="label"></label>
-
-                      <select
-                        className="border py-3 input border-0.5 border-gray-500 focus:outline-[#d19f54fb] "
+                      <input
+                        type="text"
                         {...register("assetType", { required: true })}
-                      >
-                        <option disabled selected required>
-                          Asset Type
-                        </option>
-                        <option value="laptop">laptop</option>
-                        <option value="keyboard">keyboard</option>
-                        <option value="chair">chair</option>
-                        <option value="desk">desk</option>
-                        <option value="phone">phone</option>
-                      </select>
+                        placeholder="Asset Type"
+                        className="input border-0.5 border-gray-500 focus:outline-[#d19f54fb] "
+                      />
+                      {errors.name && (
+                        <span className="text-[#D1A054]">
+                          Asset Name is required
+                        </span>
+                      )}
                     </div>
 
                     <div>

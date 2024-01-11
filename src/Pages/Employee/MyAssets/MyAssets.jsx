@@ -33,7 +33,6 @@ const MyAssets = () => {
   if (loading && !assets) {
     return <Loading />;
   }
-  // console.log(assets);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -65,11 +64,9 @@ const MyAssets = () => {
   };
   const handleReturn = (id) => {
     axiosSecure.patch(`/request-asset/${id}`, typeInfo);
-    // refetch();
+    
   };
 
-  console.log(searchValue);
-  console.log(type);
   return (
     <Container>
       <div className="py-12 h-screen" data-aos="fade-top">
@@ -145,7 +142,7 @@ const MyAssets = () => {
                             <label
                               onClick={() => handleDelete(asset?._id)}
                               htmlFor="my_modal_6"
-                              className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                              className="btn rounded-md  border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                             >
                               Cancel
                             </label>
@@ -155,7 +152,7 @@ const MyAssets = () => {
                             <label
                               onClick={() => handleReturn(asset?._id)}
                               htmlFor="my_modal_6"
-                              className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                              className="btn rounded-md border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white"
                             >
                               Return
                             </label>
@@ -164,7 +161,7 @@ const MyAssets = () => {
                               {asset?.status === "approved" && (
                                 <label
                                   htmlFor="my_modal_6"
-                                  className="btn rounded-md  bg-[#D1A054] hover:bg-[#eba43b] text-white"
+                                  className="btn rounded-md border-none opacity-80 hover:opacity-100  bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white px-6"
                                 >
                                   Print
                                 </label>
@@ -174,7 +171,7 @@ const MyAssets = () => {
 
                           {asset?.status === "returned" && (
                             <div className="my-3">
-                              <label className="p-3.5 rounded-md  bg-[#d19f5459]  text-white">
+                              <label className="py-3.5 px-4 rounded-md border-none opacity-50   bg-gradient-to-r from-[#D32053] to-[#460BC6] text-white">
                                 Return
                               </label>
                             </div>
